@@ -33,14 +33,6 @@
             <input class="form-control" id="equipo" name="input_equipo"> 
           </div>
           <div class="form-group">
-          <label for="input_division">Categoria del equipo:</label>
-            <select name="input_division" id="catEquipos" >
-              <option value="Word-Tour">Word Tour</option>
-              <option value="ContPro">Continental Pro</option>
-              <option value="Continental">Continental</option>
-            </select>
-          </div>
-          <div class="form-group">
           <label for="especialidad">Especialidad</label>
             <select  id="especialidad"  name="input_especialidad" >
               <option value="Vuelta por etapas">Vuelta por etapas</option>
@@ -53,8 +45,19 @@
           <div class="form-group">
               <label for="edad">Edad</label>
               <input class="form-control" id="edad"  name="input_edad">
+          </div> 
+          <div class="form-group">
+          <label for="input_division">Categoria del equipo:</label>
+            <select name="input_division" id="catEquipos" >
+              <option value="Word-Tour">Word Tour</option>
+              <option value="ContPro">Continental Pro</option>
+              <option value="Continental">Continental</option>
+            </select>
           </div>
-          
+          <div class="form-group">
+              <label for="input_pais">Pais Equipo</label>
+              <input class="form-control" id="pais"  name="input_pais">
+          </div>
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
       </div>

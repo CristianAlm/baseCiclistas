@@ -1,0 +1,25 @@
+1- insertar
+
+2 editar
+
+3 borrar
+
+4 obetener uno por id
+
+5 obtener todos
+
+6 obtener ciclistas por equipo
+
+cretar testeo
+ 1 modelo
+
+2 vista
+
+3 controlador
+
+agregar funcionalidad cada uno su modelo,vista controladores
+
+usuario y sus cosas
+
+/ciclistas/:ID
+POST

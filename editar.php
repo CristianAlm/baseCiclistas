@@ -1,6 +1,6 @@
 <?php
 
-  function editora($ciclistas_id, $newcorredor, $newequipo, $newdivision, $newespecialidad, $newedad){
+  function editora($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
     $title = "Editar corredor";
     
 ?>
@@ -22,7 +22,7 @@
       <h1><?php  echo $title ?></h1>
 
       <div class="container">
-      <form action="/primerVersionTPE/paraEditar/<?php echo $ciclistas_id ?>" method="post">
+      <form action="/baseCiclistas/paraEditar/<?php echo $ciclistas_id ?>" method="post">
           <div class="form-group">
             <label for="corredor">Corredor</label>
             <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value='<?php echo $newcorredor ?>'>
@@ -33,12 +33,6 @@
             <input class="form-control" id="equipo" name="equipo" value='<?php echo $newequipo ?>'>
           </div>
           <div class="form-group">
-          <label for="input_division">Categoria del equipo:</label>
-            <select name="division" id="catEquipos" >
-              <option value="Word-Tour">Word Tour</option>
-              <option value="ContPro">Continental Pro</option>
-              <option value="Continental">Continental</option>
-            </select>
           </div>
           <div class="form-group">
           <label for="especialidad">Especialidad</label>
@@ -54,7 +48,18 @@
               <label for="edad">Edad</label>
               <input class="form-control" id="edad"  name="edad" value='<?php echo  $newedad ?>'>
           </div>
-          
+          <div class="form-group">
+          <label for="division">Categoria del equipo:</label>
+            <select name="division" id="catEquipos" >
+              <option value="Word-Tour">Word Tour</option>
+              <option value="ContPro">Continental Pro</option>
+              <option value="Continental">Continental</option>
+            </select>
+          </div>
+          <div class="form-group">
+              <label for="pais">Pais Equipo</label>
+              <input class="form-control" id="pais"  name="pais">
+          </div>
           <button type="submit" class="btn btn-primary">Editar</button>
         </form>
       </div>

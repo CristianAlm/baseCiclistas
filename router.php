@@ -20,12 +20,14 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home': 
         listarCiclistas();
+        listarEquipos();
         break;
     case 'insertar': 
         formularioCiclistas();
         break;
     case 'insert':
-        echo "el router anda"; 
+        echo "el router anda";
+        insertarEquipo(); 
         insertarCiclista();
         break;
     case 'borrar':
@@ -33,14 +35,16 @@ switch ($params[0]) {
         break;
     case 'paraEditar':
         $id = $params[1];
-        editCiclista($id, $_POST['corredor'], $_POST['equipo'], $_POST['division'], $_POST['especialidad'], $_POST['edad'] );
+        editCiclista($id, $_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad']);
         break;
     
     case 'editar':
         $id = $params[1];
+        //$id_equipo = $params[2];
         $ciclista = getCiclistaparaeditar($id);
+        //$equipo = geEquipoparaeditar($id);
 
-        editora($params[1],$ciclista->corredor,$ciclista->equipo,$ciclista->division,$ciclista->especialidad,$ciclista->edad);
+        editora($params[1],$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
         break;
     
     default: 
