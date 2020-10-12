@@ -5,9 +5,11 @@
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
 
-require_once "ciclistas.php";
-require_once "insertarCiclistas.php";
-require_once "editar.php";
+//require_once "ciclistas.php";
+//require_once "insertarCiclistas.php";
+//require_once "editar.php";
+
+require_once "Controller/ciclistasController.php";
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -17,11 +19,20 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
+$controller = new ciclistasController();
+
 switch ($params[0]) {
-    case 'home': 
-        listarCiclistas();
-        listarEquipos();
+    case 'home':
+        $controller->Home(); 
+        //listarCiclistas();
+        //listarEquipos();
         break;
+        case '':
+            $controller->Home(); 
+            //listarCiclistas();
+            //listarEquipos();
+            break;
+    /*    
     case 'insertar': 
         formularioCiclistas();
         break;
@@ -46,6 +57,8 @@ switch ($params[0]) {
 
         editora($params[1],$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
         break;
+
+        */
     
     default: 
         echo('404 Page not found'); 
