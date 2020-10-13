@@ -18,10 +18,6 @@
             echo $newedad . ' ';
             echo $newespecialidad . ' ';
             //echo 'En el sowEdit';
-            $this->elnombre=$newcorredor;
-            $this->elquipo=$newequipo;
-            $this->laedad=$newedad;
-            $this->laespecialidad=$newespecialidad;
 
             $html = '
             <!doctype html>
@@ -43,14 +39,12 @@
                 <form action="/baseCiclistas/paraEditar/<?php echo $ciclistas_id ?>" method="post">
                     <div class="form-group">
                       <label for="corredor">Corredor</label>
-                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value='.$this->elnombre.'>
+                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value='.$newcorredor.'>
                       <small id="emailHelp" class="form-text text-muted">Nombre y apellido del corredor</small>
                     </div>
                     <div class="form-group">
                       <label for="equipo">Equipo</label>
-                      <input class="form-control" id="equipo" name="equipo" value='.$this->elequipo.' >
-                    </div>
-                    <div class="form-group">
+                      <input class="form-control" id="equipo" name="equipo" value='.$newequipo.'>
                     </div>
                     <div class="form-group">
                     <label for="especialidad">Especialidad</label>
@@ -64,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label for="edad">Edad</label>
-                        <input class="form-control" id="edad"  name="edad" value='.$this->laedad.'>
+                        <input class="form-control" id="edad"  name="edad" value='.$newedad.'>
                     </div>
                     <div class="form-group">
                     <label for="division">Categoria del equipo:</label>
