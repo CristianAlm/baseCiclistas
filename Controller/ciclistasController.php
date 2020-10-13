@@ -23,8 +23,9 @@
         }
 
         function editBase($ciclistas_id){
-            $ciclista = $this->model->getCiclistaparaeditar($id);
+            $ciclista = $this->model->getCiclistaparaeditar($ciclistas_id);
             $this->edit->showEdit($ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
+            
         }
 
         function insertarEquipo(){
