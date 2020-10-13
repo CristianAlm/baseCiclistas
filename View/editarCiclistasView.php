@@ -8,11 +8,7 @@
         }
 
         function showEdit($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
-            echo $ciclistas_id . ' ';
-            echo $newcorredor . ' ';
-            echo $newequipo . ' ';
-            echo $newedad . ' ';
-            echo $newespecialidad . ' ';
+            
             //echo 'En el sowEdit';
 
             $html = '
@@ -44,7 +40,7 @@
                     </div>
                     <div class="form-group">
                                 <label for="especialidad">Especialidad</label>
-                                <input class="form-control" id="especialidad" name="input_especialidad" aria-describedby="emailHelp" value="'.$newespecialidad.'">
+                                <input class="form-control" id="especialidad" name="especialidad" aria-describedby="emailHelp" value="'.$newespecialidad.'">
                                 <small id="emailHelp" class="form-text text-muted">Recuerde que las especialidad son 6: vuelta por etapas, escalador, sprinter, clasicomano, vueltas de 1 semana y gregario</small>
                             </div>
                     <div class="form-group">
@@ -54,7 +50,7 @@
                     
                     <div class="form-group">
                           <label for="input_division">Categoria del equipo:</label>
-                            <input class="form-control" id="catEquipos" name="input_division" aria-describedby="emailHelp" value="'.$newequipo.'">
+                            <input class="form-control" id="catEquipos" name="division" aria-describedby="emailHelp" value="'.$newequipo.'">
                             <small id="emailHelp" class="form-text text-muted">Recuerde que las categorias son 3: Word Tour, Continental Pro y Continental</small>
                     </div>
 

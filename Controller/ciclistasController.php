@@ -37,8 +37,8 @@
             
         }
 
-        function paraEditarCiclista($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
-            $this->model->editCiclista($id, $_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad']);
+        function paraEditarCiclista($id){
+            $this->model->editCiclista($_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad']);
             header("Location: ".BASE_URL."login");
         }
 

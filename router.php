@@ -48,7 +48,7 @@ switch ($params[0]) {
         break;
     case 'paraEditar':
         $id = $params[1];
-        $controller->paraEditarCiclista($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad);
+        $controller->paraEditarCiclista($id);
         break;
     
     case 'editar':

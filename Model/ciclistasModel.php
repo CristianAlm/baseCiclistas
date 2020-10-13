@@ -145,9 +145,14 @@
         }
         
         function editCiclista($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
+
+            echo "variable id ci" . $ciclistas_id;
+            die;
             $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
+
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
             $query = $db->prepare("UPDATE corredor SET corredor=?, id_equipo=?, edad=?, especialidad=?  WHERE id=?");
             $results = $query->execute(array($newcorredor, $newequipo,  $newedad, $newespecialidad , $ciclistas_id));
