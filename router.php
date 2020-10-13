@@ -23,6 +23,12 @@ $controller = new ciclistasController();
 
 switch ($params[0]) {
     case 'home':
+        $controller->loginHome();
+        //$controller->Home(); 
+        //listarCiclistas();
+        //listarEquipos();
+        break;
+    case 'login':
         $controller->Home(); 
         //listarCiclistas();
         //listarEquipos();

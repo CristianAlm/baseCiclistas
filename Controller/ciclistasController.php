@@ -3,18 +3,25 @@
     require_once "./View/ciclistasView.php";
     require_once "./Model/ciclistasModel.php";
     require_once "./View/editarCiclistasView.php";
+    require_once "./View/loginView.php";
 
     class ciclistasController{
 
         private $view;
         private $model;
         private $edit;
+        private $loginView;
 
         function __construct(){
             $this->view = new ciclistasView();
             $this->model = new ciclistasModel();
             $this->edit = new editarCiclistasView();
+            $this->loginView = new loginView();
 
+        }
+
+        function loginHome(){
+            $this->loginView->showLogin();
         }
 
         function Home(){
