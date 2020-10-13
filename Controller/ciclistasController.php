@@ -8,16 +8,23 @@
 
         private $view;
         private $model;
+        private $edit;
 
         function __construct(){
             $this->view = new ciclistasView();
             $this->model = new ciclistasModel();
+            $this->edit = new editarCiclistasView();
 
         }
 
         function Home(){
             $ciclistas = $this->model->listarCiclistas();
             $this->view->showHome();
+        }
+
+        function editBase($ciclistas_id){
+            $ciclista = $this->model->getCiclistaparaeditar($id);
+            $this->edit->showEdit($ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
         }
 
         function insertarEquipo(){

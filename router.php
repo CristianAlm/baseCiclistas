@@ -40,19 +40,17 @@ switch ($params[0]) {
     case 'borrar':
         $controller->deleteCiclista($params[1]);
         break;
-    case 'paraEditar':
-        $id = $params[1];
-        editCiclista($id, $_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad']);
-        break;
-    
-    case 'editar':
-        $id = $params[1];
-        //$id_equipo = $params[2];
-        $ciclista = getCiclistaparaeditar($id);
-        //$equipo = geEquipoparaeditar($id);
-
-        editora($params[1],$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
-        break;
+        case 'paraEditar':
+            $id = $params[1];
+            editCiclista($id, $_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad']);
+            break;
+        
+        case 'editar':
+            $id = $params[1];
+            $controller->editBase($ciclistas_id);
+            //$ciclista = getCiclistaparaeditar($id);
+            //editora($params[1],$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
+            break;
     /*    
     case 'insertar': 
         formularioCiclistas();
