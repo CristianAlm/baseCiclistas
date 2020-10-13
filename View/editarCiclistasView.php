@@ -2,10 +2,6 @@
     class editarCiclistasView{
 
         private $title;
-        private $elnombre;
-        private $elequipo;
-        private $laedad;
-        private $laespecialidad;
 
         function __construct(){
             $this->title="Editar corredor";
