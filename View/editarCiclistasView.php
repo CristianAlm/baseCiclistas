@@ -39,7 +39,7 @@
                 <form action="/baseCiclistas/paraEditar/<?php echo $ciclistas_id ?>" method="post">
                     <div class="form-group">
                       <label for="corredor">Corredor</label>
-                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value='.$newcorredor.'>
+                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value="'.$newcorredor.'">
                       <small id="emailHelp" class="form-text text-muted">Nombre y apellido del corredor</small>
                     </div>
                     <div class="form-group">
