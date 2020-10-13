@@ -112,25 +112,22 @@
             echo "</table>";
         }
         
-        function insertarCiclista(){
+        function insertarCiclista($corredor, $id_equipo,$edad,$especialidad){
             $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
         
             $query = $db->prepare('INSERT INTO corredor(corredor, id_equipo, edad, especialidad) VALUES(?,?,?,?)');
-            
-            $query->execute(array($_POST['input_corredor'],$_POST['input_equipo'],$_POST['input_edad'],$_POST['input_especialidad']));
-        
-            //header("Location: ".BASE_URL."home");
+            $query->execute(array($corredor, $id_equipo,$edad,$especialidad));
         }
-        function insertarEquipo(){
+        function insertarEquipo($id_equipo,$division,$pais){
             $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
         
             $query = $db->prepare('INSERT INTO equipo(id_equipo, division, pais) VALUES(?,?,?)');
             
-            $query->execute(array($_POST['input_equipo'],$_POST['input_division'],$_POST['input_pais']));
+            $query->execute(array($id_equipo,$division,$pais));
         
             //header("Location: ".BASE_URL."home");
         }

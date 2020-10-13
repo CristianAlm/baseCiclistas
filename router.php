@@ -27,22 +27,18 @@ switch ($params[0]) {
         //listarCiclistas();
         //listarEquipos();
         break;
-        case '':
-            $controller->Home(); 
-            //listarCiclistas();
-            //listarEquipos();
-            break;
-    /*    
-    case 'insertar': 
-        formularioCiclistas();
+    case '':
+        $controller->Home(); 
+        //listarCiclistas();
+        //listarEquipos();
         break;
     case 'insert':
         echo "el router anda";
-        insertarEquipo(); 
-        insertarCiclista();
+        $controller->insertarEquipo(); 
+        $controller->insertarCiclista();
         break;
     case 'borrar':
-        deleteCiclista($params[1]);
+        $controller->deleteCiclista($params[1]);
         break;
     case 'paraEditar':
         $id = $params[1];
@@ -56,6 +52,10 @@ switch ($params[0]) {
         //$equipo = geEquipoparaeditar($id);
 
         editora($params[1],$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
+        break;
+    /*    
+    case 'insertar': 
+        formularioCiclistas();
         break;
 
         */
