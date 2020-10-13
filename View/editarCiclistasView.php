@@ -2,17 +2,26 @@
     class editarCiclistasView{
 
         private $title;
+        private $elnombre;
+        private $elequipo;
+        private $laedad;
+        private $laespecialidad;
 
         function __construct(){
             $this->title="Editar corredor";
         }
 
-        function showEdit($newcorredor, $newequipo,  $newedad, $newespecialidad){
+        function showEdit($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
+            echo $ciclistas_id . ' ';
             echo $newcorredor . ' ';
             echo $newequipo . ' ';
             echo $newedad . ' ';
             echo $newespecialidad . ' ';
             //echo 'En el sowEdit';
+            $this->elnombre=$newcorredor;
+            $this->elquipo=$newequipo;
+            $this->laedad=$newedad;
+            $this->laespecialidad=$newespecialidad;
 
             $html = '
             <!doctype html>
@@ -34,12 +43,12 @@
                 <form action="/baseCiclistas/paraEditar/<?php echo $ciclistas_id ?>" method="post">
                     <div class="form-group">
                       <label for="corredor">Corredor</label>
-                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp">
+                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value='.$this->elnombre.'>
                       <small id="emailHelp" class="form-text text-muted">Nombre y apellido del corredor</small>
                     </div>
                     <div class="form-group">
                       <label for="equipo">Equipo</label>
-                      <input class="form-control" id="equipo" name="equipo" >
+                      <input class="form-control" id="equipo" name="equipo" value='.$this->elequipo.' >
                     </div>
                     <div class="form-group">
                     </div>
@@ -55,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="edad">Edad</label>
-                        <input class="form-control" id="edad"  name="edad">
+                        <input class="form-control" id="edad"  name="edad" value='.$this->laedad.'>
                     </div>
                     <div class="form-group">
                     <label for="division">Categoria del equipo:</label>
