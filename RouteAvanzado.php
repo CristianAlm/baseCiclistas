@@ -21,7 +21,7 @@
 
     $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
 
-    $r->addRoute("mermelada", "GET", "TasksController", "Home");
+    //$r->addRoute("mermelada", "GET", "TasksController", "Home");
 
     //Esto lo veo en TasksView
     $r->addRoute("insert", "POST", "TasksController", "InsertTask");
@@ -34,7 +34,7 @@
     $r->setDefaultRoute("TasksController", "Home");
 
     //Advance
-    $r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
+    //$r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
 
     //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 

@@ -40,30 +40,24 @@
                     </div>
                     <div class="form-group">
                       <label for="equipo">Equipo</label>
-                      <input class="form-control" id="equipo" name="equipo" value='.$newequipo.'>
+                      <input class="form-control" id="equipo" name="equipo" value="'.$newequipo.'">
                     </div>
                     <div class="form-group">
-                    <label for="especialidad">Especialidad</label>
-                      <select  id="especialidad"  name="especialidad" >
-                        <option value="Vuelta por etapas">Vuelta por etapas</option>
-                        <option value="Sprinter">Sprinter</option>
-                        <option value="Clasicomano">Clasicomano</option>
-                        <option value="Escalador">Escalador</option>
-                        <option value="Gregario">Gregario</option>
-                      </select>
-                    </div>
+                                <label for="especialidad">Especialidad</label>
+                                <input class="form-control" id="especialidad" name="input_especialidad" aria-describedby="emailHelp" value="'.$newespecialidad.'">
+                                <small id="emailHelp" class="form-text text-muted">Recuerde que las especialidad son 6: vuelta por etapas, escalador, sprinter, clasicomano, vueltas de 1 semana y gregario</small>
+                            </div>
                     <div class="form-group">
                         <label for="edad">Edad</label>
-                        <input class="form-control" id="edad"  name="edad" value='.$newedad.'>
+                        <input class="form-control" id="edad"  name="edad" value="'.$newedad.'">
                     </div>
+                    
                     <div class="form-group">
-                    <label for="division">Categoria del equipo:</label>
-                      <select name="division" id="catEquipos" >
-                        <option value="Word-Tour">Word Tour</option>
-                        <option value="ContPro">Continental Pro</option>
-                        <option value="Continental">Continental</option>
-                      </select>
+                          <label for="input_division">Categoria del equipo:</label>
+                            <input class="form-control" id="catEquipos" name="input_division" aria-describedby="emailHelp" value="'.$newequipo.'">
+                            <small id="emailHelp" class="form-text text-muted">Recuerde que las categorias son 3: Word Tour, Continental Pro y Continental</small>
                     </div>
+
                     <div class="form-group">
                         <label for="pais">Pais Equipo</label>
                         <input class="form-control" id="pais"  name="pais">
