@@ -7,8 +7,12 @@
             $this->title="Editar corredor";
         }
 
-        function showEdit(){
-            echo 'en el sowEdit';
+        function showEdit($newcorredor, $newequipo,  $newedad, $newespecialidad){
+            echo $newcorredor . ' ';
+            echo $newequipo . ' ';
+            echo $newedad . ' ';
+            echo $newespecialidad . ' ';
+            //echo 'En el sowEdit';
 
             $html = '
             <!doctype html>
@@ -21,21 +25,21 @@
                 <!-- Bootstrap CSS -->
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
           
-                <title><?php  echo $title ?></title>
+                <title>'.$this->title.'</title>
               </head>
               <body>
-                <h1><?php  echo $title ?></h1>
+                <h1>'.$this->title.'</h1>
           
                 <div class="container">
                 <form action="/baseCiclistas/paraEditar/<?php echo $ciclistas_id ?>" method="post">
                     <div class="form-group">
                       <label for="corredor">Corredor</label>
-                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value='<?php echo $newcorredor ?>'>
+                      <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp">
                       <small id="emailHelp" class="form-text text-muted">Nombre y apellido del corredor</small>
                     </div>
                     <div class="form-group">
                       <label for="equipo">Equipo</label>
-                      <input class="form-control" id="equipo" name="equipo" value='.<?php echo $newequipo ?>.'>
+                      <input class="form-control" id="equipo" name="equipo" >
                     </div>
                     <div class="form-group">
                     </div>
@@ -51,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <label for="edad">Edad</label>
-                        <input class="form-control" id="edad"  name="edad" value='<?php echo  $newedad ?>'>
+                        <input class="form-control" id="edad"  name="edad">
                     </div>
                     <div class="form-group">
                     <label for="division">Categoria del equipo:</label>
