@@ -39,7 +39,7 @@
 
         function editCiclista($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
             $this->model->editCiclista($id, $_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad']);
-            header("Location: ".BASE_URL."home");
+            header("Location: ".BASE_URL."login");
         }
 
         function insertarEquipo(){
@@ -47,7 +47,7 @@
         }
         function insertarCiclista(){
             $this->model->insertarCiclista($_POST['input_corredor'],$_POST['input_equipo'],$_POST['input_edad'],$_POST['input_especialidad']);
-            header("Location: ".BASE_URL."home");
+            header("Location: ".BASE_URL."login");
         }
 
         function deleteCiclista($ciclistas_id){

@@ -22,17 +22,23 @@
                 <title>'.$this->title.'</title>
                 </head>
                 <body>
+                <center>
                 <h1>'.$this->title.'</h1>
 
-                <div class="container">
-                    <form action="login" method="post">
-                        <div class="form-group">
-                            <input class="form-control"  name="nombre-admin" type="text" placeholder="name"/>
-                            <input class="form-control"  name="pass-admin" type="password" placeholder="password"/>
+                    <div class="container">
+                        <form action="login" method="post">
+                            <div class="form-group">
+                                <label for="nombre-admin">Nombre de Administrador</label>
+                                <input id="nombre-admin" class="form-control"  name="nombre-admin" type="text" placeholder="name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass-admin">Contraeña</label>
+                                <input id="pass-admin" class="form-control"  name="pass-admin" type="password" placeholder="password"/>
+                            </div>
                             <button type="submit" class="btn btn-primary">create</button>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                </center>
 
                 <!-- Optional JavaScript -->
                         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

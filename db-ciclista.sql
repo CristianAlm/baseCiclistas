@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2020 a las 09:14:05
+-- Tiempo de generación: 13-10-2020 a las 23:13:00
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -41,7 +41,12 @@ CREATE TABLE `corredor` (
 
 INSERT INTO `corredor` (`id`, `corredor`, `id_equipo`, `edad`, `especialidad`) VALUES
 (1, 'Emmanuel Buchman', 'BORA', 27, 'Vuelta por etapas'),
-(2, 'Alejandro Valverde', 'Movistar', 41, 'Clasicomano');
+(2, 'Alejandro Valverde', 'Movistar', 42, 'Vuelta por etapas'),
+(6, 'Primoz Roglic', 'Jumbo', 31, 'Vuelta por etapas'),
+(7, 'Eduardo Sepulveda', 'Movistar', 29, 'gregario'),
+(8, 'Fausto Masnada', 'DQC', 28, 'gregario'),
+(9, 'Peter Sagan', 'BORA', 33, 'clasicomano'),
+(10, 'Edgan Bernal', 'INEOS', 24, 'Vuelta por etapas');
 
 -- --------------------------------------------------------
 
@@ -61,9 +66,23 @@ CREATE TABLE `equipo` (
 
 INSERT INTO `equipo` (`id_equipo`, `division`, `pais`) VALUES
 ('BORA', 'Word Tour', 'Alemania'),
-('CCC', '', 'Polonia'),
+('CCC', 'Word Tour', 'Polonia'),
+('DQC', 'Word Tour', 'Bélgica'),
+('INEOS', 'Word Tour', 'Gran Bretaña'),
 ('Jumbo', 'Word Tour', 'Belgica'),
 ('Movistar', 'Word Tour', 'España');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `admin` varchar(50) NOT NULL,
+  `pass` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -83,6 +102,12 @@ ALTER TABLE `equipo`
   ADD PRIMARY KEY (`id_equipo`);
 
 --
+-- Indices de la tabla `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -90,7 +115,13 @@ ALTER TABLE `equipo`
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
