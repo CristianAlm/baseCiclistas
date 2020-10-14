@@ -48,12 +48,14 @@ switch ($params[0]) {
         break;
     case 'paraEditar':
         $id = $params[1];
+        echo "el params 1 es: ". $id;
         $controller->paraEditarCiclista($id);
         break;
     
     case 'editar':
         //$id = $params[1];
         $controller->editBase($params[1]);
+        //echo "el params 1 es: ". $params[1];
         //$ciclista = getCiclistaparaeditar($id);
         //editora($params[1],$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
         break;

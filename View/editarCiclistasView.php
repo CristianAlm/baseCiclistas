@@ -23,12 +23,13 @@
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
           
                 <title>'.$this->title.'</title>
+                <base href="' . BASE_URL .'">
               </head>
               <body>
                 <h1>'.$this->title.'</h1>
           
                 <div class="container">
-                <form action="/baseCiclistas/paraEditar/<?php echo $ciclistas_id ?>" method="post">
+                <form action="paraEditar" method="post">
                     <div class="form-group">
                       <label for="corredor">Corredor</label>
                       <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value="'.$newcorredor.'">

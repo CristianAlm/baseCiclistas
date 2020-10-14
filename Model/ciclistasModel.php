@@ -144,7 +144,7 @@
             //header("Location: ".BASE_URL."home");
         }
         
-        function editCiclista($newcorredor, $newequipo,  $newedad, $newespecialidad){
+        function editCiclista($newcorredor, $newequipo,  $newedad, $newespecialidad, $id){
 
             echo "variable newcorredor es: " . $newcorredor;
             $db = new PDO('mysql:host=localhost;'
@@ -152,10 +152,13 @@
             , 'root', '');
 
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
         
             $query = $db->prepare("UPDATE corredor SET corredor=?, id_equipo=?, edad=?, especialidad=?  WHERE id=?");
-            $results = $query->execute(array($newcorredor, $newequipo,  $newedad, $newespecialidad));
-        
+            $results = $query->execute(array($newcorredor, $newequipo,  $newedad, $newespecialidad, $id));
+            echo "este es el echo: " . $query->rowCount();
+            echo "es el id: " .  $id;
+            die;
             //header("Location: ".BASE_URL."home");
         }
         
