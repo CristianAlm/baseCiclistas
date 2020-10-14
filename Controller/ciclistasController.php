@@ -38,6 +38,7 @@
         }
 
         function paraEditarCiclista($id){
+            echo " variable id en el controller es: " . $id;
             $this->model->editCiclista($_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad'], $id);
             header("Location: ".BASE_URL."login");
         }

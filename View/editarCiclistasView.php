@@ -10,6 +10,7 @@
         function showEdit($ciclistas_id, $newcorredor, $newequipo,  $newedad, $newespecialidad){
             
             //echo 'En el sowEdit';
+            echo 'El ciclista id es: ' . $ciclistas_id;
 
             $html = '
             <!doctype html>
@@ -29,7 +30,7 @@
                 <h1>'.$this->title.'</h1>
           
                 <div class="container">
-                <form action="paraEditar" method="post">
+                <form action="paraEditar/'.$ciclistas_id.'" method="post">
                     <div class="form-group">
                       <label for="corredor">Corredor</label>
                       <input class="form-control" id="corredor" name="corredor" aria-describedby="emailHelp" value="'.$newcorredor.'">
@@ -51,7 +52,7 @@
                     
                     <div class="form-group">
                           <label for="input_division">Categoria del equipo:</label>
-                            <input class="form-control" id="catEquipos" name="division" aria-describedby="emailHelp" value="'.$newequipo.'">
+                            <input class="form-control" id="catEquipos" name="division" aria-describedby="emailHelp">
                             <small id="emailHelp" class="form-text text-muted">Recuerde que las categorias son 3: Word Tour, Continental Pro y Continental</small>
                     </div>
 

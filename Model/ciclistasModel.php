@@ -146,19 +146,19 @@
         
         function editCiclista($newcorredor, $newequipo,  $newedad, $newespecialidad, $id){
 
-            echo "variable newcorredor es: " . $newcorredor;
+            echo " variable id en el model es: " . $id;
+            echo " variable newcorredor es: " . $newcorredor;
             $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
 
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
         
             $query = $db->prepare("UPDATE corredor SET corredor=?, id_equipo=?, edad=?, especialidad=?  WHERE id=?");
             $results = $query->execute(array($newcorredor, $newequipo,  $newedad, $newespecialidad, $id));
-            echo "este es el echo: " . $query->rowCount();
-            echo "es el id: " .  $id;
-            die;
+            //echo "este es el echo: " . $query->rowCount();
+            echo " El id despues de esecute es: " .  $id;
             //header("Location: ".BASE_URL."home");
         }
         
