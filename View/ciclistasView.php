@@ -24,10 +24,8 @@
                         </head>
                         <body>
 
-                        <center>
                             <h1>'.$this->title.'</h1>
                             <button type="button" class="btn btn-outline-danger"><a href="paraLogin">Login Admin</a></button>
-                        </center>
 
 
                         <!-- Optional JavaScript -->

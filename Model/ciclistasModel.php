@@ -94,6 +94,7 @@
             $ciclistas = getCiclistas();
             
             echo '<center>';
+            echo '<h2>Corredores inscriptos</h2>';
             echo '<table>';
             echo '<tr>';
             echo '<td>Corredor</td>';
@@ -177,6 +178,7 @@
             $equipos = getEquipos();
             
             echo '<center>';
+            echo '<h2>Equipos inscriptos</h2>';
             echo '<table>';
             echo '<tr>';
             echo '<td>Equipo</td>';
