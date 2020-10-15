@@ -1,40 +1,39 @@
 <?php
 
     //require que tengo que cambiar
-    require_once 'Controller/TasksController.php';
-    require_once 'Controller/TasksAdvanceController.php';
-    require_once 'Controller/UserController.php';
+    
+    require_once 'Controller/ciclistasController.php';
+    //require_once 'Controller/loginController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-    define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
-    define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+    
 
 
     $r = new Router();
 
     // rutas
-    $r->addRoute("home", "GET", "TasksController", "Home");
-    $r->addRoute("login", "GET", "UserController", "Login");
-    $r->addRoute("logout", "GET", "UserController", "Logout");
+    $r->addRoute("login", "GET", "ciclistasController", "Home");
+    $r->addRoute("insert", "POST", "ciclistasController", "insertarCiclista");
+    $r->addRoute("insert", "POST", "ciclistasController", "insertarEquipo");
+    $r->addRoute("borrar/:ID", "GET", "ciclistasController", "deleteCiclista");
+    $r->addRoute("editar/:ID", "GET", "ciclistasController", "editBase");
+    $r->addRoute("paraEditar/:ID", "POST", "ciclistasController", "paraEditarCiclista");
 
-    $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
 
-    //$r->addRoute("mermelada", "GET", "TasksController", "Home");
+    //$r->addRoute("login", "GET", "UserController", "Login");
+    //$r->addRoute("logout", "GET", "UserController", "Logout");
+
+    //$r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
+
 
     //Esto lo veo en TasksView
-    $r->addRoute("insert", "POST", "TasksController", "InsertTask");
 
-    $r->addRoute("delete/:ID", "GET", "TasksController", "BorrarLaTaskQueVienePorParametro");
     $r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
-    $r->addRoute("edit/:ID", "GET", "TasksController", "EditTask");
 
     //Ruta por defecto.
-    $r->setDefaultRoute("TasksController", "Home");
-
-    //Advance
-    //$r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
+    $r->setDefaultRoute("ciclistasController", "Home");
 
     //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 

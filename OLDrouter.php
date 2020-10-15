@@ -31,7 +31,7 @@ switch ($params[0]) {
         //listarEquipos();
         break;
     case 'login':
-        $loginController->verifyUser();
+        //$loginController->verifyUser();
         $controller->Home(); 
         //listarCiclistas();
         //listarEquipos();

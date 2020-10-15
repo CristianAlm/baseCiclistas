@@ -24,15 +24,18 @@
             $this->view->showHome();
         }
 
-        function editBase($ciclistas_id){
-            //$id = $params[1];
+        function editBase($params = null){
+            $ciclistas_id = $params[':ID'];
+
             $ciclista = $this->model->getCiclistaparaeditar($ciclistas_id);
             //var_dump($ciclista);
             $this->edit->showEdit($ciclista->id,$ciclista->corredor,$ciclista->id_equipo,$ciclista->edad,$ciclista->especialidad);
             
         }
 
-        function paraEditarCiclista($id){
+        function paraEditarCiclista($params = null){
+            $id = $params[':ID'];
+
             echo " variable id en el controller es: " . $id;
             $this->model->editCiclista($_POST['corredor'], $_POST['equipo'], $_POST['edad'], $_POST['especialidad'], $id);
             header("Location: ".BASE_URL."login");
@@ -46,7 +49,9 @@
             header("Location: ".BASE_URL."login");
         }
 
-        function deleteCiclista($ciclistas_id){
+        function deleteCiclista($params = null){
+            $ciclistas_id = $params[':ID'];
+
             $this->model->deleteCiclista($ciclistas_id);
             header("Location: ".BASE_URL."home");
         }
