@@ -15,6 +15,7 @@
 
     // rutas
     $r->addRoute("login", "GET", "ciclistasController", "Home");
+    $r->addRoute("paraLogin", "GET", "ciclistasController", "manipularTabla");
     $r->addRoute("insert", "POST", "ciclistasController", "insertarCiclista");
     $r->addRoute("insert", "POST", "ciclistasController", "insertarEquipo");
     $r->addRoute("borrar/:ID", "GET", "ciclistasController", "deleteCiclista");
@@ -27,10 +28,6 @@
 
     //$r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
 
-
-    //Esto lo veo en TasksView
-
-    $r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
 
     //Ruta por defecto.
     $r->setDefaultRoute("ciclistasController", "Home");

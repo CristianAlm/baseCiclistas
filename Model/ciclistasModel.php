@@ -75,6 +75,50 @@
             echo '</center>';
             
         }
+
+        function listarCiclistassinAcceso(){
+            function getCiclistas(){
+                $db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+        
+            $query = $db->prepare('SELECT * FROM corredor');
+            $query->execute();
+        
+            $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
+        
+            return $ciclistas;
+        
+            }
+        
+            $ciclistas = getCiclistas();
+            
+            echo '<center>';
+            echo '<table>';
+            echo '<tr>';
+            echo '<td>Corredor</td>';
+            echo '<td>Equipo</td>';
+            //echo '<td>Division</td>';
+            echo '<td>Edad</td>';
+            echo '<td>Especialidad</td>';
+            echo '</tr>';
+        
+            foreach($ciclistas as $ciclista){
+                $ciclista->id;
+                //echo "<li> $ciclista->corredor del equipo: $ciclista->id . <button><a href=borrar/'.$ciclistas->id.'>Borrar</a></button>  </li>";
+                //echo '<td class=list-group-item >'. $ciclista->corredor . ' del equipo: ' . $ciclista->equipo . ' <button type="button" class="btn btn-outline-danger"><a href="borrar/'.$ciclista->id.'">Borrar</a></button><button type="button" class="btn btn-outline-danger"><a href="editar/'.$ciclista->id.'">Editar</a></button></td>';
+                echo "<tr>";
+                echo '<td>'. $ciclista->corredor.'</td>';
+                echo '<td>'.$ciclista->id_equipo.'</td>';
+                //echo '<td>'.$ciclista->division.'</td>';
+                echo '<td>'.$ciclista->edad.'</td>';
+                echo '<td>'.$ciclista->especialidad.'</td>';
+                echo "</tr>";
+            }
+            echo "</table>";
+            echo '</center>';
+            
+        }
         
         function listarEquipos(){
             
@@ -112,6 +156,46 @@
                 echo "</tr>";
             }
             echo "</table>";
+        }
+
+        function listarEquipossinAcceso(){
+            
+            function getEquipos(){
+                $db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+        
+            $query = $db->prepare('SELECT * FROM equipo');
+            $query->execute();
+        
+            $equipos = $query->fetchAll(PDO::FETCH_OBJ);
+        
+            return $equipos;
+        
+            }
+        
+            $equipos = getEquipos();
+            
+            echo '<center>';
+            echo '<table>';
+            echo '<tr>';
+            echo '<td>Equipo</td>';
+            echo '<td>Division</td>';
+            echo '<td>Pais</td>';
+            echo '<td>Corredores</td>';
+            echo '</tr>';
+        
+            foreach($equipos as $equipo){
+                $equipo->id_equipo;
+                echo "<tr>";
+                echo '<td>'. $equipo->id_equipo.'</td>';
+                echo '<td>'.$equipo->division.'</td>';
+                echo '<td>'.$equipo->pais.'</td>';
+                echo '<td><button type="button" class="btn btn-outline-danger"><a href="mostrarCorredores/'.$equipo->id_equipo.'">Corredores</a></button></td>';
+                echo "</tr>";
+            }
+            echo "</table>";
+            echo "</center>";
         }
         
         function insertarCiclista($corredor, $id_equipo,$edad,$especialidad){
