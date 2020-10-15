@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-15 12:38:41
+/* Smarty version 3.1.34-dev-7, created on 2020-10-15 12:57:39
   from 'C:\xampp\htdocs\baseCiclistas\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8826b1b0e373_37884724',
+  'unifunc' => 'content_5f882b23e0d648_60615996',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '41a672f61c9ab09ed92d39a2e8fdc2f98cefa94d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\baseCiclistas\\templates\\header.tpl',
-      1 => 1602758307,
+      1 => 1602759457,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f8826b1b0e373_37884724 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f882b23e0d648_60615996 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
             <html lang="en">
               <head>
@@ -37,6 +37,8 @@ function content_5f8826b1b0e373_37884724 (Smarty_Internal_Template $_smarty_tpl)
 ">
               </head>
               <body>
-                <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
-</h1><?php }
+                <center>
+                  <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+</h1>
+                 </center> <?php }
 }

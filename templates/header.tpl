@@ -12,4 +12,6 @@
                 <base href="{BASE_URL}">
               </head>
               <body>
-                <h1>{$titulo}</h1>
+                <center>
+                  <h1>{$titulo}</h1>
+                 </center> 
