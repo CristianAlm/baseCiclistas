@@ -22,7 +22,10 @@
                         <title>'.$this->title.'</title>
                         </head>
                         <body>
-                        <h1>'.$this->title.'</h1>
+
+                        <center>
+                            <h1>'.$this->title.'</h1>
+                        </center>
 
                         <div class="container">
                         <form action="insert" method="post">

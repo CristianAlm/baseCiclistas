@@ -44,7 +44,8 @@
             }
         
             $ciclistas = getCiclistas();
-        
+            
+            echo '<center>';
             echo '<table>';
             echo '<tr>';
             echo '<td>Corredor</td>';
@@ -71,6 +72,7 @@
                 echo "</tr>";
             }
             echo "</table>";
+            echo '</center>';
             
         }
         

@@ -10,19 +10,14 @@
         private $view;
         private $model;
         private $edit;
-        private $loginView;
 
         function __construct(){
             $this->view = new ciclistasView();
             $this->model = new ciclistasModel();
             $this->edit = new editarCiclistasView();
-            $this->loginView = new loginView();
 
         }
 
-        function loginHome(){
-            $this->loginView->showLogin();
-        }
 
         function Home(){
             $ciclistas = $this->model->listarCiclistas();
