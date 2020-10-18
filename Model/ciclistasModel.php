@@ -21,7 +21,7 @@
               , 'root', '');
         
         
-            $query = $db->prepare('SELECT * FROM equipo WHERE id=' . $id);
+            $query = $db->prepare('SELECT * FROM equipo WHERE id=' . $id_equipo);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
             if (sizeof($results) > 0)   return $results[0];
@@ -245,7 +245,7 @@
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
         
-            $query = $db->prepare('DELETE FROM equipo WHERE id=?');
+            $query = $db->prepare('DELETE FROM equipo WHERE id_equipo=?');
             $query->execute(array($equipo_id));
         
             //header("Location: ".BASE_URL."home");
