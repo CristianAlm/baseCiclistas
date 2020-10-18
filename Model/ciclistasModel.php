@@ -15,7 +15,7 @@
             else return null;
         }
         
-        function geEquipoparaeditar($id_equipo){
+        function getEquipoparaeditar($id_equipo){//Mirar si tengo que modificar el id y el id del prepare
             $db = new PDO('mysql:host=localhost;'
               .'dbname=db-ciclista;charset=utf8'
               , 'root', '');
@@ -28,7 +28,7 @@
             else return null;
         }
         
-        function listarCiclistas(){
+        function listarCiclistas(){//Voy a tener que modificar aca si modifico la base de datos
             function getCiclistas(){
                 $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
@@ -76,7 +76,7 @@
             
         }
 
-        function listarCiclistassinAcceso(){
+        function listarCiclistassinAcceso(){//Voy a tener que modificar aca si toco la base de datos
             function getCiclistas(){
                 $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
@@ -121,7 +121,7 @@
             
         }
         
-        function listarEquipos(){
+        function listarEquipos(){//Voy a tener que modificar aca si toco la base de datos
             
             function getEquipos(){
                 $db = new PDO('mysql:host=localhost;'
@@ -141,25 +141,27 @@
         
             echo '<table>';
             echo '<tr>';
+            echo '<td>ID Equipo</td>';
             echo '<td>Equipo</td>';
             echo '<td>Division</td>';
-            echo '<td>Pais</td>';
             echo '<td>Corredores</td>';
+            echo '<td>Editar</td>';
             echo '</tr>';
         
             foreach($equipos as $equipo){
                 $equipo->id_equipo;
                 echo "<tr>";
                 echo '<td>'. $equipo->id_equipo.'</td>';
+                echo '<td>'.$equipo->equipo.'</td>';
                 echo '<td>'.$equipo->division.'</td>';
-                echo '<td>'.$equipo->pais.'</td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="mostrarCorredores/'.$equipo->id_equipo.'">Corredores</a></button></td>';
+                echo '<td><button type="button" class="btn btn-outline-danger"><a href="editarEquipo/'.$equipo->id_equipo.'">Editar Equipo</a></button></td>';
                 echo "</tr>";
             }
             echo "</table>";
         }
 
-        function listarEquipossinAcceso(){
+        function listarEquipossinAcceso(){//Voy a tener que modificar aca si toco la base de datos
             
             function getEquipos(){
                 $db = new PDO('mysql:host=localhost;'
@@ -181,9 +183,9 @@
             echo '<h2>Equipos inscriptos</h2>';
             echo '<table>';
             echo '<tr>';
+            echo '<td>ID Equipo</td>';
             echo '<td>Equipo</td>';
             echo '<td>Division</td>';
-            echo '<td>Pais</td>';
             echo '<td>Corredores</td>';
             echo '</tr>';
         
@@ -191,8 +193,8 @@
                 $equipo->id_equipo;
                 echo "<tr>";
                 echo '<td>'. $equipo->id_equipo.'</td>';
+                echo '<td>'.$equipo->equipo.'</td>';
                 echo '<td>'.$equipo->division.'</td>';
-                echo '<td>'.$equipo->pais.'</td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="mostrarCorredores/'.$equipo->id_equipo.'">Corredores</a></button></td>';
                 echo "</tr>";
             }
@@ -200,7 +202,7 @@
             echo "</center>";
         }
         
-        function insertarCiclista($corredor, $id_equipo,$edad,$especialidad){
+        function insertarCiclista($corredor, $id_equipo,$edad,$especialidad){//Voy a tener que modificar aca si toco la base de datos
             $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
@@ -208,14 +210,14 @@
             $query = $db->prepare('INSERT INTO corredor(corredor, id_equipo, edad, especialidad) VALUES(?,?,?,?)');
             $query->execute(array($corredor, $id_equipo,$edad,$especialidad));
         }
-        function insertarEquipo($id_equipo,$division,$pais){
+        function insertarEquipo($id_equipo,$equipo,$division){//Voy a tener que modificar aca si toco la base de datos
             $db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
         
-            $query = $db->prepare('INSERT INTO equipo(id_equipo, division, pais) VALUES(?,?,?)');
+            $query = $db->prepare('INSERT INTO equipo(id_equipo, equipo, division) VALUES(?,?,?)');
             
-            $query->execute(array($id_equipo,$division,$pais));
+            $query->execute(array($id_equipo, $equipo ,$division));
         
             //header("Location: ".BASE_URL."home");
         }

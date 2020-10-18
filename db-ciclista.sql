@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2020 a las 13:39:09
+-- Tiempo de generación: 18-10-2020 a las 08:51:46
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `corredor` (
   `id` int(11) NOT NULL,
   `corredor` varchar(50) NOT NULL,
-  `id_equipo` varchar(50) NOT NULL,
+  `id_equipo` int(11) NOT NULL,
   `edad` int(11) NOT NULL,
   `especialidad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,36 +40,12 @@ CREATE TABLE `corredor` (
 --
 
 INSERT INTO `corredor` (`id`, `corredor`, `id_equipo`, `edad`, `especialidad`) VALUES
-(1, 'Emmanuel Buchman', 'BORA', 27, 'Vuelta por etapas'),
-(2, 'Alejandro Valverde', 'Movistar', 42, 'Vuelta de una semana'),
-(6, 'Primoz Roglic', 'Jumbo', 31, 'Vuelta por etapas'),
-(7, 'Eduardo Sepulveda', 'Movistar', 29, 'gregario'),
-(9, 'Peter Sagan', 'BORA', 32, 'clasicomano'),
-(10, 'Egan Bernal', 'INEOS', 24, 'Vuelta por etapas'),
-(33, 'Cesare Benedeti', 'Bora', 34, 'gregario'),
-(34, 'Arnaud Demare', 'FDJ', 29, 'sprinter'),
-(36, 'Thibaut Pinot', 'FDJ', 30, 'Vuelta por etapas'),
-(37, 'Chris Froome', 'INEOS', 35, 'Vuelta por etapas');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `entrada`
---
-
-CREATE TABLE `entrada` (
-  `id` int(11) NOT NULL,
-  `persona` varchar(50) NOT NULL,
-  `password` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `entrada`
---
-
-INSERT INTO `entrada` (`id`, `persona`, `password`) VALUES
-(1, 'primerAdmin', 123456),
-(2, 'segundoAdmin', 654321);
+(1, 'Peter Sagan', 1, 32, 'Clasicomano'),
+(2, 'Primoz Roglic', 2, 31, 'Vuelta por etapas'),
+(3, 'Miguel Angel Lopez', 4, 26, 'Vuelta por etapas'),
+(4, 'Tadeg Pogacar', 3, 22, 'Vuelta por etapas'),
+(5, 'Patrick Konrad', 1, 29, 'Vuelta por etapas'),
+(6, 'Egan Bernal', 5, 23, 'Vuelta por etapas');
 
 -- --------------------------------------------------------
 
@@ -78,34 +54,22 @@ INSERT INTO `entrada` (`id`, `persona`, `password`) VALUES
 --
 
 CREATE TABLE `equipo` (
-  `id_equipo` varchar(50) NOT NULL,
-  `division` varchar(50) NOT NULL,
-  `pais` varchar(50) NOT NULL
+  `id_equipo` int(11) NOT NULL,
+  `equipo` varchar(50) NOT NULL,
+  `division` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `equipo`
 --
 
-INSERT INTO `equipo` (`id_equipo`, `division`, `pais`) VALUES
-('AG2R', 'Word Tour', 'Francia'),
-('Astana', 'Word Tour', 'Kazajistán'),
-('Bahrain-McLaren', 'Word Tour', 'Gean Bretaña'),
-('BORA', 'Word Tour', 'Alemania'),
-('CCC', 'Word Tour', 'Polonia'),
-('DQC', 'Word Tour', 'Belgica'),
-('EF', 'Word Tour', 'EEUU'),
-('FDJ', 'Word Tour', 'Francia'),
-('INEOS', 'Word Tour', 'Gran Bretaña'),
-('Israel Start-Up Nation', 'Word Tour', 'Israel'),
-('Jumbo', 'Word Tour', 'Belgica'),
-('Lotto Soudal', 'Word Tour', 'Belgica'),
-('Mitchelton-Scott', 'Word Tour', 'Australia'),
-('Movistar', 'Word Tour', 'España'),
-('NTT Pro Cycling', 'Word-Tour', 'Sudafrica'),
-('Team Sunweb', 'Word Tour', 'Belgica'),
-('Trek', 'Word Tour', 'EEUU'),
-('UAE', 'Word Tour', 'Emiratos Arabes Unidos');
+INSERT INTO `equipo` (`id_equipo`, `equipo`, `division`) VALUES
+(1, 'Bora', 'Word Tour'),
+(2, 'Jumbo', 'Word Tour'),
+(3, 'UAD', 'Word Tour'),
+(4, 'Astana', 'Word Tour'),
+(5, 'INEOS', 'Word Tour'),
+(6, 'Movistar', 'Word Tour');
 
 --
 -- Índices para tablas volcadas
@@ -117,12 +81,6 @@ INSERT INTO `equipo` (`id_equipo`, `division`, `pais`) VALUES
 ALTER TABLE `corredor`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_equipo` (`id_equipo`);
-
---
--- Indices de la tabla `entrada`
---
-ALTER TABLE `entrada`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `equipo`
@@ -138,13 +96,7 @@ ALTER TABLE `equipo`
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
---
--- AUTO_INCREMENT de la tabla `entrada`
---
-ALTER TABLE `entrada`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

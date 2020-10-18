@@ -7,7 +7,7 @@
         private $title;
 
         function __construct(){
-            $this->title="Ingresar Corredores";
+            $this->title="Ingresar Corredor o equipo";
         }
 
         function showHomeAdmin(){//me va a llegar una lista de ciclistas y me fijo si tengo que pasar por parametro $ciclistas

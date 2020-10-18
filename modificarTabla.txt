@@ -1,0 +1,12 @@
+corredor:
+	1-id -> int(primaria)
+	2-corredor -> varchar
+	3-id_equipo -> int(indice)
+	4-edad -> int
+	5-especialidad -> varchar
+
+equipo:
+	1-id_equipo -> int(primaria)
+	2-equipo -> varchar
+	3-division -> varchar
+	4-pais -> varchar //Esta probablemente la saque
