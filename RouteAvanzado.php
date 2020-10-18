@@ -19,6 +19,7 @@
     $r->addRoute("insert", "POST", "ciclistasController", "insertarCiclista");
     $r->addRoute("insertEquipo", "POST", "ciclistasController", "insertarEquipo");
     $r->addRoute("borrar/:ID", "GET", "ciclistasController", "deleteCiclista");
+    $r->addRoute("borrarEquipo/:ID", "GET", "ciclistasController", "deleteEquipo");
     $r->addRoute("editar/:ID", "GET", "ciclistasController", "editBase");
     $r->addRoute("paraEditar/:ID", "POST", "ciclistasController", "paraEditarCiclista");
 

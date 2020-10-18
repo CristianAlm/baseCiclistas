@@ -46,6 +46,7 @@
             $ciclistas = getCiclistas();
             
             echo '<center>';
+            echo '<h3>Lista de ciclistas</h3>';
             echo '<table>';
             echo '<tr>';
             echo '<td>Corredor</td>';
@@ -138,7 +139,9 @@
             }
         
             $equipos = getEquipos();
-        
+            
+            echo '<center>';
+            echo '<h3>Lista de equipos</h3>';
             echo '<table>';
             echo '<tr>';
             echo '<td>ID Equipo</td>';
@@ -146,6 +149,7 @@
             echo '<td>Division</td>';
             echo '<td>Corredores</td>';
             echo '<td>Editar</td>';
+            echo '<td>Borrar</td>';
             echo '</tr>';
         
             foreach($equipos as $equipo){
@@ -156,9 +160,11 @@
                 echo '<td>'.$equipo->division.'</td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="mostrarCorredores/'.$equipo->id_equipo.'">Corredores</a></button></td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="editarEquipo/'.$equipo->id_equipo.'">Editar Equipo</a></button></td>';
+                echo '<td><button type="button" class="btn btn-outline-danger"><a href="borrarEquipo/'.$equipo->id_equipo.'">Borrar Equipo</a></button></td>';
                 echo "</tr>";
             }
             echo "</table>";
+            echo '</center>';
         }
 
         function listarEquipossinAcceso(){//Voy a tener que modificar aca si toco la base de datos
@@ -230,6 +236,17 @@
         
             $query = $db->prepare('DELETE FROM corredor WHERE id=?');
             $query->execute(array($ciclistas_id));
+        
+            //header("Location: ".BASE_URL."home");
+        }
+
+        function deleteEquipo($equipo_id){
+            $db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+        
+            $query = $db->prepare('DELETE FROM equipo WHERE id=?');
+            $query->execute(array($equipo_id));
         
             //header("Location: ".BASE_URL."home");
         }
