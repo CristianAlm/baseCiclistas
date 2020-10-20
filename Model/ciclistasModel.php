@@ -21,7 +21,7 @@
               , 'root', '');
         
         
-            $query = $db->prepare('SELECT * FROM equipo WHERE id=' . $id_equipo);
+            $query = $db->prepare('SELECT * FROM equipo WHERE id_equipo=' . $id_equipo);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
             if (sizeof($results) > 0)   return $results[0];
@@ -269,6 +269,23 @@
             //header("Location: ".BASE_URL."home");
         }
         
+        function editEquipo($newequipo, $newdivision, $id){
+
+            echo " variable id en el model es: " . $id;
+            echo " variable newcorredor es: " . $newcorredor;
+            $db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+
+            //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+        
+            $query = $db->prepare("UPDATE equipo SET equipo=?, division=? WHERE id_equipo=?");
+            $results = $query->execute(array($newequipo, $newdivision, $id));
+            //echo "este es el echo: " . $query->rowCount();
+            echo " El id despues de esecute es: " .  $id;
+            //header("Location: ".BASE_URL."home");
+        }
 
     }
 

@@ -26,6 +26,8 @@
     $r->addRoute("editar/:ID", "GET", "ciclistasController", "editBase");
     $r->addRoute("paraEditar/:ID", "POST", "ciclistasController", "paraEditarCiclista");
 
+    $r->addRoute("editarEquipo/:ID", "GET", "ciclistasController", "editBaseEquipo");
+    $r->addRoute("paraEditarEquipo/:ID", "POST", "ciclistasController", "EditarEquipo");
 
     //$r->addRoute("login", "GET", "UserController", "Login");
     //$r->addRoute("logout", "GET", "UserController", "Logout");

@@ -9,7 +9,7 @@ equipo:
 	1-id_equipo -> int(primaria)
 	2-equipo -> varchar
 	3-division -> varchar
-	4-pais -> varchar //Esta probablemente la saque
+	
 
 
 SELECT corredor.corredor, corredor.especialidad, equipo.equipo

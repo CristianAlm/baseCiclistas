@@ -4,6 +4,7 @@
     require_once "./View/ciclistasAdminView.php";
     require_once "./Model/ciclistasModel.php";
     require_once "./View/editarCiclistasView.php";
+    require_once "./View/editarEquiposView.php";
     require_once "./View/loginView.php";
 
     class ciclistasController{
@@ -12,12 +13,14 @@
         private $viewAdmin;
         private $model;
         private $edit;
+        private $editarEquipo;
 
         function __construct(){
             $this->view = new ciclistasView();
             $this->model = new ciclistasModel();
             $this->edit = new editarCiclistasView();
             $this->viewAdmin = new ciclistasAdminView();
+            $this->editarEquipo = new editarEquiposView();
 
         }
 
@@ -51,24 +54,21 @@
             header("Location: ".BASE_URL."paraLogin");
         }
 
-        /**
-         * function editBaseEquipo($params = null){
+        
+         function editBaseEquipo($params = null){
             $equipo_id = $params[':ID'];//Mirar si tengo que modificar esto
-
             $equipo = $this->model->getEquipoparaeditar($equipo_id);
-            //var_dump($equipo);
-            $this->edit->showEdit($equipo->id_equipo,$equipo->equipo,$equipo->division);
+            $this->editarEquipo->showEditEquipo($equipo->id_equipo,$equipo->equipo,$equipo->division);
             
         }
 
-        function paraEditarEquipo($params = null){
-            $id = $params[':ID'];//Mirar si tengque modificar id
+        function EditarEquipo($params = null){
+            $id_equipo = $params[':ID'];//Mirar si tengque modificar id
 
-            echo " variable id en el controller es: " . $id;
-            $this->model->editCiclista($_POST['id_equipo'], $_POST['equipo'], $_POST['division'], $id);
+            echo " variable id en el controller es: " . $id_equipo;
+            $this->model->editEquipo($_POST['equipo'], $_POST['division'], $id_equipo);
             header("Location: ".BASE_URL."paraLogin");
         }
-         */
 
         function insertarEquipo(){//voy a tener que modifica aca si toco la base de datos
             $this->model->insertarEquipo($_POST['input_id_equipo'],$_POST['input_equipo'],$_POST['input_division']);
