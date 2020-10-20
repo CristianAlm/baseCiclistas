@@ -10,3 +10,11 @@ equipo:
 	2-equipo -> varchar
 	3-division -> varchar
 	4-pais -> varchar //Esta probablemente la saque
+
+
+SELECT corredor.corredor, corredor.especialidad, equipo.equipo
+FROM equipo
+INNER JOIN corredor ON corredor.id_equipo=equipo.id_equipo
+
+
+SELECT * FROM `corredor` WHERE id_equipo = 1
