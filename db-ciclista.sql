@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2020 a las 08:51:46
+-- Tiempo de generación: 23-10-2020 a las 01:34:30
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db-ciclista`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `id_admin` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,7 +57,10 @@ INSERT INTO `corredor` (`id`, `corredor`, `id_equipo`, `edad`, `especialidad`) V
 (3, 'Miguel Angel Lopez', 4, 26, 'Vuelta por etapas'),
 (4, 'Tadeg Pogacar', 3, 22, 'Vuelta por etapas'),
 (5, 'Patrick Konrad', 1, 29, 'Vuelta por etapas'),
-(6, 'Egan Bernal', 5, 23, 'Vuelta por etapas');
+(6, 'Egan Bernal', 5, 23, 'Vuelta por etapas'),
+(9, 'Alejandro Valverde', 6, 40, 'vueltas de 1 semana'),
+(10, 'Rafal Majka', 1, 31, 'Vuelta por etapas'),
+(11, 'Adam Yates', 9, 29, 'Vuelta por etapas');
 
 -- --------------------------------------------------------
 
@@ -69,11 +84,20 @@ INSERT INTO `equipo` (`id_equipo`, `equipo`, `division`) VALUES
 (3, 'UAD', 'Word Tour'),
 (4, 'Astana', 'Word Tour'),
 (5, 'INEOS', 'Word Tour'),
-(6, 'Movistar', 'Word Tour');
+(6, 'Movistar', 'Word Tour'),
+(7, 'Trek', 'Word Tour'),
+(8, 'CCC', 'Word Tour'),
+(9, 'Mitchelton Scott', 'Word Tour');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indices de la tabla `corredor`
@@ -93,10 +117,16 @@ ALTER TABLE `equipo`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
