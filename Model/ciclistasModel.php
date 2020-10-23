@@ -287,6 +287,70 @@
             //header("Location: ".BASE_URL."home");
         }
 
+        function muestroCorredoresdelEquipo($equipocorredor_id){
+            function getCiclistasdelEquipo(){
+                //Voy a tener que modificar aca si toco la base de datos
+            function getCiclistas(){
+                $db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+        
+            $query = $db->prepare('SELECT * FROM `corredor` WHERE id_equipo =' . $equipocorredor_id);
+            $query->execute();
+        
+            $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
+
+            var_dump($ciclistas);
+            die;
+        
+            return $ciclistas;
+        
+            }
+        
+            $ciclistas = getCiclistas();
+            
+            echo '<center>';
+            echo '<h2>Corredores inscriptos</h2>';
+            echo '<table>';
+            echo '<tr>';
+            echo '<td>Corredor</td>';
+            echo '<td>Equipo</td>';
+            //echo '<td>Division</td>';
+            echo '<td>Edad</td>';
+            echo '<td>Especialidad</td>';
+            echo '</tr>';
+        
+            foreach($ciclistas as $ciclista){
+                $ciclista->id;
+                //echo "<li> $ciclista->corredor del equipo: $ciclista->id . <button><a href=borrar/'.$ciclistas->id.'>Borrar</a></button>  </li>";
+                //echo '<td class=list-group-item >'. $ciclista->corredor . ' del equipo: ' . $ciclista->equipo . ' <button type="button" class="btn btn-outline-danger"><a href="borrar/'.$ciclista->id.'">Borrar</a></button><button type="button" class="btn btn-outline-danger"><a href="editar/'.$ciclista->id.'">Editar</a></button></td>';
+                echo "<tr>";
+                echo '<td>'. $ciclista->corredor.'</td>';
+                echo '<td>'.$ciclista->id_equipo.'</td>';
+                //echo '<td>'.$ciclista->division.'</td>';
+                echo '<td>'.$ciclista->edad.'</td>';
+                echo '<td>'.$ciclista->especialidad.'</td>';
+                echo "</tr>";
+            }
+            echo "</table>";
+            echo '</center>';
+            
+        }
+    }
+
+        function GetequipoParaSelect(){
+            $sentencia = $db->prepare("SELECT * FROM equipo");
+            $sentencia->execute(array());
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+    
+    
+        function GetCiclistaById($id) {
+                $sentencia = $this->db->prepare("SELECT * FROM ciclista INNER JOIN equipos ON ciclista.id_equipo = equipo.id_equipo WHERE id=?");
+                $sentencia->execute(array($id));
+                return $sentencia->fetch(PDO::FETCH_OBJ);
+            }
+
     }
 
 ?>

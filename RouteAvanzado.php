@@ -16,6 +16,7 @@
     //login
 
     $r->addRoute("irLogeo", "GET", "loginController", "ShowLogin");
+    $r->addRoute("paraLogout", "GET", "loginController", "Logout");
     $r->addRoute("verifyUser", "POST", "loginController", "VerifyUser");
 
     // rutas
@@ -34,6 +35,9 @@
     $r->addRoute("editarEquipo/:ID", "GET", "ciclistasController", "editBaseEquipo");
     $r->addRoute("paraEditarEquipo/:ID", "POST", "ciclistasController", "EditarEquipo");
 
+    $r->addRoute("mostrarCorredores/:ID", "POST", "ciclistasController", "muestro");
+    
+    
 
     //Ruta por defecto.
     $r->setDefaultRoute("ciclistasController", "Home");

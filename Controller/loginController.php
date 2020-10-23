@@ -57,8 +57,9 @@ class loginController {
 
 
 	public function Logout() {
-        $this->authHelper->Logout();
-        header('Location: ' . LOGIN);
+        //$this->authHelper->Logout();
+		//header('Location: ' . LOGIN);
+		header("Location:".BASE_URL."home");
     }
 
 
