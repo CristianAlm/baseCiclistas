@@ -93,16 +93,10 @@
             header("Location: ".BASE_URL."home");
         }
 
-        function muestro(){
-            echo "en la funcion mostrar corredores";
-            header("Location: ".BASE_URL."mostrarCorredores");
-            /**
-             $equipocorredor_id = $params[':ID'];
-             var_dump($equipocorredor_id);
- 
-             $this->model->muestroCorredoresdelEquipo($equipocorredor_id);
-             * 
-             */
+        function muestro($params = null){
+            $equipocorredor_id = $params[':ID'];
+            //echo "en la funcion mostrar corredores y el id es: " . $equipocorredor_id;
+            $this->model->muestroCorredores($equipocorredor_id);
 
         }
         

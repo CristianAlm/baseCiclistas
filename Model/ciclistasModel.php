@@ -287,30 +287,26 @@
             //header("Location: ".BASE_URL."home");
         }
 
-        function muestroCorredoresdelEquipo($equipocorredor_id){
-            function getCiclistasdelEquipo(){
-                //Voy a tener que modificar aca si toco la base de datos
-            function getCiclistas(){
-                $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
-        
-            $query = $db->prepare('SELECT * FROM `corredor` WHERE id_equipo =' . $equipocorredor_id);
-            $query->execute();
-        
-            $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
+        function muestroCorredores($equipocorredor_id){
 
-            var_dump($ciclistas);
-            die;
-        
-            return $ciclistas;
+            function getCiclistas($equipocorredor_id){
+                $db = new PDO('mysql:host=localhost;'
+                .'dbname=db-ciclista;charset=utf8'
+                , 'root', '');
+            
+                $query = $db->prepare('SELECT * FROM `corredor` WHERE id_equipo ='. $equipocorredor_id);
+                $query->execute();
+            
+                $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
+            
+                return $ciclistas;
         
             }
         
-            $ciclistas = getCiclistas();
+            $ciclistas = getCiclistas($equipocorredor_id);
             
             echo '<center>';
-            echo '<h2>Corredores inscriptos</h2>';
+            echo '<h3>Lista de ciclistas</h3>';
             echo '<table>';
             echo '<tr>';
             echo '<td>Corredor</td>';
@@ -330,12 +326,11 @@
                 //echo '<td>'.$ciclista->division.'</td>';
                 echo '<td>'.$ciclista->edad.'</td>';
                 echo '<td>'.$ciclista->especialidad.'</td>';
+            
                 echo "</tr>";
             }
             echo "</table>";
             echo '</center>';
-            
-        }
     }
 
         function GetequipoParaSelect(){
