@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2020 a las 01:34:30
+-- Tiempo de generación: 23-10-2020 a las 19:49:05
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -29,9 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administradores` (
   `id_admin` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `nombre` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `administradores`
+--
+
+INSERT INTO `administradores` (`id_admin`, `nombre`, `password`) VALUES
+(4, 'admin1', '12345');
 
 -- --------------------------------------------------------
 
@@ -60,7 +67,9 @@ INSERT INTO `corredor` (`id`, `corredor`, `id_equipo`, `edad`, `especialidad`) V
 (6, 'Egan Bernal', 5, 23, 'Vuelta por etapas'),
 (9, 'Alejandro Valverde', 6, 40, 'vueltas de 1 semana'),
 (10, 'Rafal Majka', 1, 31, 'Vuelta por etapas'),
-(11, 'Adam Yates', 9, 29, 'Vuelta por etapas');
+(11, 'Adam Yates', 9, 29, 'Vuelta por etapas'),
+(12, 'Maximiliano Richeze', 3, 35, 'gregario'),
+(13, 'maciej bodnar', 1, 35, 'gregario');
 
 -- --------------------------------------------------------
 
@@ -87,7 +96,9 @@ INSERT INTO `equipo` (`id_equipo`, `equipo`, `division`) VALUES
 (6, 'Movistar', 'Word Tour'),
 (7, 'Trek', 'Word Tour'),
 (8, 'CCC', 'Word Tour'),
-(9, 'Mitchelton Scott', 'Word Tour');
+(9, 'Mitchelton Scott', 'Word Tour'),
+(11, 'Lotto', 'Word Tour'),
+(12, 'NTT', 'Word Tour');
 
 --
 -- Índices para tablas volcadas
@@ -120,13 +131,13 @@ ALTER TABLE `equipo`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
