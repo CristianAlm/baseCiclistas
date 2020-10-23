@@ -14,20 +14,6 @@ class loginModel {
 	}
 
 
-			/*********************/
-			/*Registro de usuario*/
-			/*********************/
-	/*
-		$pass = "12345";//viene desde un input
-		$hash = password_hash($pass, PASSWORD_DEFAULT);
-
-		$passwordInput = $pass;
-		if (password_verify($passwordInput, $hash)) {
-			echo "Credenciales validas";
-		}else{
-			echo "Credenciales invalidas";
-		}
-	*/
 
 }
 
