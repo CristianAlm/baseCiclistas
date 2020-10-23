@@ -3,7 +3,7 @@
     //require que tengo que cambiar
     
     require_once 'Controller/ciclistasController.php';
-    //require_once 'Controller/loginController.php';
+    require_once 'Controller/loginController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
@@ -12,6 +12,11 @@
 
 
     $r = new Router();
+
+    //login
+
+    $r->addRoute("irLogeo", "GET", "loginController", "ShowLogin");
+    $r->addRoute("verifyUser", "POST", "loginController", "VerifyUser");
 
     // rutas
     $r->addRoute("login", "GET", "ciclistasController", "Home");
@@ -28,11 +33,6 @@
 
     $r->addRoute("editarEquipo/:ID", "GET", "ciclistasController", "editBaseEquipo");
     $r->addRoute("paraEditarEquipo/:ID", "POST", "ciclistasController", "EditarEquipo");
-
-    //$r->addRoute("login", "GET", "UserController", "Login");
-    //$r->addRoute("logout", "GET", "UserController", "Logout");
-
-    //$r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
 
 
     //Ruta por defecto.
