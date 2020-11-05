@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-23 14:24:33
+/* Smarty version 3.1.34-dev-7, created on 2020-11-05 18:42:37
   from 'C:\xampp\htdocs\baseCiclista\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f92cb818d31c9_40707949',
+  'unifunc' => 'content_5fa4398dbbc5e0_99688620',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e85ba70cf65725d6e04553be30769d627ae8e882' => 
     array (
       0 => 'C:\\xampp\\htdocs\\baseCiclista\\templates\\footer.tpl',
-      1 => 1603455862,
+      1 => 1603473295,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f92cb818d31c9_40707949 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa4398dbbc5e0_99688620 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Optional JavaScript -->
                 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                 <?php echo '<script'; ?>

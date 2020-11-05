@@ -13,5 +13,6 @@
               </head>
               <body>
                 <center>
-                  <h1>{$titulo}</h1>
+                  <h1 class="mb-3">{$titulo}</h1>
+                  <hr class="mb-3">
                  </center> 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-23 14:24:36
+/* Smarty version 3.1.34-dev-7, created on 2020-11-05 18:43:45
   from 'C:\xampp\htdocs\baseCiclista\templates\headerciclistasAdminView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f92cb84f3a771_68879077',
+  'unifunc' => 'content_5fa439d1473a85_83793389',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed0da66821edba5c2e2c3d7d95dadf0ac886c93a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\baseCiclista\\templates\\headerciclistasAdminView.tpl',
-      1 => 1603455862,
+      1 => 1603473295,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f92cb84f3a771_68879077 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa439d1473a85_83793389 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
                     <html lang="en">
                         <head>

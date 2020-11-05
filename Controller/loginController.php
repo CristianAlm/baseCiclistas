@@ -1,6 +1,7 @@
 <?php 
 
 require_once "./View/loginView.php";
+require_once "./View/registerView.php";
 require_once "./Model/loginModel.php";
 //require_once "./Helpers/Helper.php";
 
@@ -9,19 +10,24 @@ require_once "./Model/loginModel.php";
 class loginController {
 
 	private $view;
+	private $registerView;
 	private $model;
 	//private $authHelper;
 
 	public function __construct(){
 		$this->view = new loginView();
+		$this->registerView = new registerView();
 		$this->model = new loginModel();
 		//$this->authHelper = new Helper();
 	}
 
-		function ShowLogin() {
+	function ShowLogin() {
 		$this->view->ShowLogin();
 	}
 
+	function showRegister() {
+      $this->registerView->showRegister();
+    }
 
 	public function VerifyUser() {
 		$user = $_POST['input_user'];
@@ -39,8 +45,8 @@ class loginController {
 			
 			if(isset($userFromDB) && $userFromDB){ //existe y es true.
 				//	Existe el usuario
-				if($pass == $userFromDB->password ){
-					$this->view->ShowLogin("Contraseña correcta");
+				if(password_verify($pass, $userFromDB->password)) {
+					//$this->view->ShowLogin("Contraseña correcta");
 					//$this->authHelper->Login($userFromDB);
 					header("Location:".BASE_URL."paraLogin");
 				}else{
@@ -52,6 +58,24 @@ class loginController {
 			}
 		}
 	}
+
+	public function registerUser() {
+      $user = $_POST['input_user'];
+      $pass = $_POST['input_pass'];
+
+      $userFromDB = $this->model->GetUser($user);
+      if ($userFromDB) {
+        $this->registerView->showRegister("El nombre ya existe");
+        return;
+      }
+
+      try {
+        $this->model->createUser($user, $pass);
+        $this->view->ShowLogin("Usuario creado exitosamente");
+      } catch (Exception $e) {
+        $this->view->showRegister("Hubo un problema durante el registro");
+      }
+    }
 
 	//$2y$12$vcP6PqTDVHRswJcqzpIpwu5LEbs3TT8hO6ZzppzPQIu
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2020 a las 19:49:05
+-- Tiempo de generación: 05-11-2020 a las 18:44:19
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -38,7 +38,8 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id_admin`, `nombre`, `password`) VALUES
-(4, 'admin1', '12345');
+(5, 'cristian', '$2y$10$DbHCvrX1ox1HIRUvRYVcVeHbYwDXvmPjnuV9zwwe2vUmLOTjC65RG'),
+(6, 'admin1', '$2y$10$qxji52.b5XqoXWGt03BhIeRnPItVYMmrK4E.fETaGteK/jlJulC.y');
 
 -- --------------------------------------------------------
 
@@ -131,13 +132,13 @@ ALTER TABLE `equipo`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas

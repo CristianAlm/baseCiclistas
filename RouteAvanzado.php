@@ -16,8 +16,10 @@
     //login
 
     $r->addRoute("irLogeo", "GET", "loginController", "ShowLogin");
+    $r->addRoute("irRegistro", "GET", "loginController", "showRegister");
     $r->addRoute("paraLogout", "GET", "loginController", "Logout");
     $r->addRoute("verifyUser", "POST", "loginController", "VerifyUser");
+    $r->addRoute("registerUser", "POST", "loginController", "registerUser");
 
     // rutas
     $r->addRoute("login", "GET", "ciclistasController", "Home");

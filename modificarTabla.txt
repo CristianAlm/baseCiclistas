@@ -18,3 +18,11 @@ INNER JOIN corredor ON corredor.id_equipo=equipo.id_equipo
 
 
 SELECT * FROM `corredor` WHERE id_equipo = 1
+
+if(!isset($_SESSION))
+        {
+        session_start();
+        }
+if (session_status() != SESSION_ACTIVE) {
+    session_start();
+}

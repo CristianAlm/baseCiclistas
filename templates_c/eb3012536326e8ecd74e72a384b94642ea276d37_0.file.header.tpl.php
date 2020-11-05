@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-23 14:24:33
+/* Smarty version 3.1.34-dev-7, created on 2020-11-05 18:42:37
   from 'C:\xampp\htdocs\baseCiclista\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f92cb818b36e1_29787072',
+  'unifunc' => 'content_5fa4398db9d401_69928647',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'eb3012536326e8ecd74e72a384b94642ea276d37' => 
     array (
       0 => 'C:\\xampp\\htdocs\\baseCiclista\\templates\\header.tpl',
-      1 => 1603455862,
+      1 => 1603474220,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f92cb818b36e1_29787072 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa4398db9d401_69928647 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
             <html lang="en">
               <head>
@@ -38,7 +38,8 @@ function content_5f92cb818b36e1_29787072 (Smarty_Internal_Template $_smarty_tpl)
               </head>
               <body>
                 <center>
-                  <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+                  <h1 class="mb-3"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
+                  <hr class="mb-3">
                  </center> <?php }
 }
