@@ -8,6 +8,8 @@
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+    define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/irLogeo');
+    define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/Logout');
     
 
 
@@ -17,7 +19,7 @@
 
     $r->addRoute("irLogeo", "GET", "loginController", "ShowLogin");
     $r->addRoute("irRegistro", "GET", "loginController", "showRegister");
-    $r->addRoute("paraLogout", "GET", "loginController", "Logout");
+    $r->addRoute("Logout", "GET", "loginController", "Logout");
     $r->addRoute("verifyUser", "POST", "loginController", "VerifyUser");
     $r->addRoute("registerUser", "POST", "loginController", "registerUser");
 

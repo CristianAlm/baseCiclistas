@@ -25,6 +25,12 @@ class loginController {
 		$this->view->ShowLogin();
 	}
 
+	function Logout(){
+		session_start();
+		session_destroy();
+		header('Location: ' . LOGIN);
+	}
+
 	function showRegister() {
       $this->registerView->showRegister();
     }
@@ -48,6 +54,9 @@ class loginController {
 				if(password_verify($pass, $userFromDB->password)) {
 					//$this->view->ShowLogin("Contraseña correcta");
 					//$this->authHelper->Login($userFromDB);
+					session_start();
+
+					$_SESSION['NOMBRE'] = $userFromDB->nombre;
 					header("Location:".BASE_URL."paraLogin");
 				}else{
 					$this->view->ShowLogin("Contraseña incorrecta");
@@ -80,11 +89,14 @@ class loginController {
 	//$2y$12$vcP6PqTDVHRswJcqzpIpwu5LEbs3TT8hO6ZzppzPQIu
 
 
+
+	/*
 	public function Logout() {
         //$this->authHelper->Logout();
 		//header('Location: ' . LOGIN);
 		header("Location:".BASE_URL."home");
-    }
+	}
+	*/
 
 
 }

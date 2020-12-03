@@ -24,8 +24,22 @@
 
         }
 
+        private function checkLoggedIn(){
+
+            session_start();
+
+            if(!isset($_SESSION['NOMBRE'])){
+                header('Location: ' . LOGIN);
+                die();
+            }
+
+        }
+
 
         function Home(){
+
+            $this->checkLoggedIn();
+
             //$ciclistas = $this->model->listarCiclistas();
             $this->view->showHome();
             $ciclistas = $this->model->listarCiclistassinAcceso();
