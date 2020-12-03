@@ -14,6 +14,33 @@
             if (sizeof($results) > 0)   return $results[0];
             else return null;
         }
+
+        function getCiclista($id){
+            $db = new PDO('mysql:host=localhost;'
+              .'dbname=db-ciclista;charset=utf8'
+              , 'root', '');
+        
+        
+            $query = $db->prepare('SELECT * FROM corredor WHERE id=' . $id);
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_OBJ);
+            if (sizeof($results) > 0)   return $results[0];
+            else return null;
+        }
+
+        function getCiclistas(){
+            $db = new PDO('mysql:host=localhost;'
+        .'dbname=db-ciclista;charset=utf8'
+        , 'root', '');
+    
+        $query = $db->prepare('SELECT * FROM corredor');
+        $query->execute();
+    
+        $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
+    
+        return $ciclistas;
+    
+        }
         
         function getEquipoparaeditar($id_equipo){//Mirar si tengo que modificar el id y el id del prepare
             $db = new PDO('mysql:host=localhost;'
