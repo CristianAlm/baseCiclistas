@@ -16,4 +16,5 @@
                         <center>
                             <h1>{$titulo}</h1>
                             <button type="button" class="btn btn-outline-danger"><a href="paraLogout">Salir</a></button>
+                            <button type="button" class="btn btn-outline-danger"><a href="tablaUsuarios">Usuarios</a></button>
                         </center>
