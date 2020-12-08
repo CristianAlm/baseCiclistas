@@ -142,6 +142,7 @@
                 //echo '<td>'.$ciclista->division.'</td>';
                 echo '<td>'.$ciclista->edad.'</td>';
                 echo '<td>'.$ciclista->especialidad.'</td>';
+                echo '<td><button type="button" class="btn btn-outline-danger"><a href="comentarioCorredor/'.$ciclista->id.'">Comentarios</a></button></td>';
                 echo "</tr>";
             }
             echo "</table>";
@@ -220,6 +221,7 @@
             echo '<td>Equipo</td>';
             echo '<td>Division</td>';
             echo '<td>Corredores</td>';
+            echo '<td>Comentarios</td>';
             echo '</tr>';
         
             foreach($equipos as $equipo){
@@ -229,6 +231,7 @@
                 echo '<td>'.$equipo->equipo.'</td>';
                 echo '<td>'.$equipo->division.'</td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="mostrarCorredores/'.$equipo->id_equipo.'">Corredores</a></button></td>';
+                echo '<td><button type="button" class="btn btn-outline-danger"><a href="comentarioEquipo/'.$equipo->id_equipo.'">Comentarios</a></button></td>';
                 echo "</tr>";
             }
             echo "</table>";
@@ -359,6 +362,37 @@
             echo "</table>";
             echo '</center>';
     }
+
+    function muestroComentarios($comentario_id){
+
+        function getCiclistas($comentario_id){
+            $db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+        
+            $query = $db->prepare('SELECT * FROM `corredor` WHERE id ='. $comentario_id);
+            $query->execute();
+        
+            $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
+        
+            return $ciclistas;
+    
+        }
+    
+        $ciclistas = getCiclistas($comentario_id);
+        
+        echo '<h1>Comentarios del corredor</h1>';
+
+        foreach($ciclistas as $ciclista){
+            //$ciclista->id;
+            echo '<h2>Ingrese su comentario del ciclista '.$ciclista->corredor.'</h2>';
+        }
+        echo '
+            <div class="col-sm-9">
+                <input type="text"  class="form-control" id="comentario" placeholder="Su comentario" name="input_comentario">
+            </div>    
+        ';
+}
 
         function GetequipoParaSelect(){
             $sentencia = $db->prepare("SELECT * FROM equipo");

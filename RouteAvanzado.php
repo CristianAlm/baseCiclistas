@@ -40,6 +40,7 @@
     $r->addRoute("paraEditarEquipo/:ID", "POST", "ciclistasController", "EditarEquipo");
 
     $r->addRoute("mostrarCorredores/:ID", "GET", "ciclistasController", "muestro");
+    $r->addRoute("comentarioCorredor/:ID", "GET", "ciclistasController", "muestroomentario");
     
     
 

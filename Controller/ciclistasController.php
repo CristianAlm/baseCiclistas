@@ -113,7 +113,13 @@
             $this->model->muestroCorredores($equipocorredor_id);
 
         }
-        
+
+        function muestroomentario($params = null){
+            $comentario_id = $params[':ID'];
+            //echo "en la funcion mostrar corredores y el id es: " . $equipocorredor_id;
+            $this->model->muestroComentarios($comentario_id);
+
+        }
 
     }
 

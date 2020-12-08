@@ -3,6 +3,7 @@
 require_once "./View/loginView.php";
 require_once "./View/registerView.php";
 require_once "./Model/loginModel.php";
+require_once "./Model/ciclistasModel.php";
 //require_once "./Helpers/Helper.php";
 
 
@@ -12,17 +13,21 @@ class loginController {
 	private $view;
 	private $registerView;
 	private $model;
+	private $modelCiclista;
 	//private $authHelper;
 
 	public function __construct(){
 		$this->view = new loginView();
 		$this->registerView = new registerView();
 		$this->model = new loginModel();
+		$this->modelCiclista = new ciclistasModel();
 		//$this->authHelper = new Helper();
 	}
 
 	function ShowLogin() {
 		$this->view->ShowLogin();
+		$ciclistas = $this->modelCiclista->listarCiclistassinAcceso();
+        $equipos = $this->modelCiclista->listarEquipossinAcceso();
 	}
 
 	function Logout(){
