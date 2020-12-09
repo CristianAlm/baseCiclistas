@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2020 a las 18:44:19
+-- Tiempo de generación: 09-12-2020 a las 19:19:38
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -38,8 +38,9 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id_admin`, `nombre`, `password`) VALUES
-(5, 'cristian', '$2y$10$DbHCvrX1ox1HIRUvRYVcVeHbYwDXvmPjnuV9zwwe2vUmLOTjC65RG'),
-(6, 'admin1', '$2y$10$qxji52.b5XqoXWGt03BhIeRnPItVYMmrK4E.fETaGteK/jlJulC.y');
+(8, 'adminRey', '$2y$10$nj1aCssjpberzgj/zwUHyeAPg2rvF/5I2R2C6IuMtdzAlRXwFno42'),
+(10, 'user1', '$2y$10$B5tAMExlQBWUCeQZ/cxQCeparqp3VIOUyLRc03g/8rln1po1./eiO'),
+(11, 'user2', '$2y$10$d3EZ1l.u4J6l6fjINx2qOerv40NIYQ49wCoELKY94AxWoeB0oiXgq');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,9 @@ INSERT INTO `corredor` (`id`, `corredor`, `id_equipo`, `edad`, `especialidad`) V
 (10, 'Rafal Majka', 1, 31, 'Vuelta por etapas'),
 (11, 'Adam Yates', 9, 29, 'Vuelta por etapas'),
 (12, 'Maximiliano Richeze', 3, 35, 'gregario'),
-(13, 'maciej bodnar', 1, 35, 'gregario');
+(13, 'maciej bodnar', 1, 35, 'gregario'),
+(15, 'Jasper Philipsen', 3, 22, 'sprinter'),
+(16, 'Simon Yates', 9, 30, 'Vuelta por etapas');
 
 -- --------------------------------------------------------
 
@@ -132,13 +135,13 @@ ALTER TABLE `equipo`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas

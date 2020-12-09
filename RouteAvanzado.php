@@ -46,6 +46,7 @@
 
     $r->addRoute("tablaUsuarios", "GET", "ciclistasAdminController", "Home");
     $r->addRoute("borrarUsuario/:ID", "GET", "ciclistasAdminController", "deleteUsuarios");
+    $r->addRoute("verifyAdmin", "POST", "ciclistasAdminController", "VerifyUserAdmin");
     
     
 
