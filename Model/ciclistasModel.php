@@ -83,6 +83,7 @@
             echo '<td>Especialidad</td>';
             echo '<td>Borrar</td>';
             echo '<td>Editar</td>';
+            echo '<td>Comntarios</td>';
             echo '</tr>';
         
             foreach($ciclistas as $ciclista){
@@ -97,6 +98,7 @@
                 echo '<td>'.$ciclista->especialidad.'</td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="borrar/'.$ciclista->id.'">Borrar</a></button></td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="editar/'.$ciclista->id .'">Editar</a></button></td>';
+                echo '<td><button type="button" class="btn btn-outline-danger"><a href="comentarioCorredor/'.$ciclista->id.'">Comentarios</a></button></td>';
                 echo "</tr>";
             }
             echo "</table>";
@@ -130,6 +132,7 @@
             //echo '<td>Division</td>';
             echo '<td>Edad</td>';
             echo '<td>Especialidad</td>';
+            echo '<td>Comentarios</td>';
             echo '</tr>';
         
             foreach($ciclistas as $ciclista){
@@ -221,7 +224,6 @@
             echo '<td>Equipo</td>';
             echo '<td>Division</td>';
             echo '<td>Corredores</td>';
-            echo '<td>Comentarios</td>';
             echo '</tr>';
         
             foreach($equipos as $equipo){
@@ -231,7 +233,6 @@
                 echo '<td>'.$equipo->equipo.'</td>';
                 echo '<td>'.$equipo->division.'</td>';
                 echo '<td><button type="button" class="btn btn-outline-danger"><a href="mostrarCorredores/'.$equipo->id_equipo.'">Corredores</a></button></td>';
-                echo '<td><button type="button" class="btn btn-outline-danger"><a href="comentarioEquipo/'.$equipo->id_equipo.'">Comentarios</a></button></td>';
                 echo "</tr>";
             }
             echo "</table>";

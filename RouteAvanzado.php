@@ -44,7 +44,8 @@
     $r->addRoute("comentarioCorredor/:ID", "GET", "ciclistasController", "muestroomentario");
 
 
-    $r->addRoute("tablaUsuarios", "GET", "ciclistasAdminController", "listaUsuarios");
+    $r->addRoute("tablaUsuarios", "GET", "ciclistasAdminController", "Home");
+    $r->addRoute("borrarUsuario/:ID", "GET", "ciclistasAdminController", "deleteUsuarios");
     
     
 
