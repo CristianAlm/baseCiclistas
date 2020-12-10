@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-12-2020 a las 19:19:38
+-- Tiempo de generación: 10-12-2020 a las 20:34:38
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -41,6 +41,20 @@ INSERT INTO `administradores` (`id_admin`, `nombre`, `password`) VALUES
 (8, 'adminRey', '$2y$10$nj1aCssjpberzgj/zwUHyeAPg2rvF/5I2R2C6IuMtdzAlRXwFno42'),
 (10, 'user1', '$2y$10$B5tAMExlQBWUCeQZ/cxQCeparqp3VIOUyLRc03g/8rln1po1./eiO'),
 (11, 'user2', '$2y$10$d3EZ1l.u4J6l6fjINx2qOerv40NIYQ49wCoELKY94AxWoeB0oiXgq');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentario` int(11) NOT NULL,
+  `texto` varchar(500) NOT NULL,
+  `puntaje` int(11) NOT NULL,
+  `id_ciclista` int(11) NOT NULL,
+  `id_usuaio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -115,6 +129,14 @@ ALTER TABLE `administradores`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_ciclista` (`id_ciclista`),
+  ADD KEY `id_usuaio` (`id_usuaio`);
+
+--
 -- Indices de la tabla `corredor`
 --
 ALTER TABLE `corredor`
@@ -138,6 +160,12 @@ ALTER TABLE `administradores`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `corredor`
 --
 ALTER TABLE `corredor`
@@ -146,6 +174,13 @@ ALTER TABLE `corredor`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_usuaio`) REFERENCES `administradores` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_ciclista`) REFERENCES `corredor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `corredor`
