@@ -1,14 +1,20 @@
 <?php
 
     class usuariosModel{
-        
-        function listarUsuarios(){//Voy a tener que modificar aca si modifico la base de datos
-            function getUsuarios(){
-                $db = new PDO('mysql:host=localhost;'
+
+        private $db;
+        public function __construct(){
+            $this->db = new PDO('mysql:host=localhost;'
             .'dbname=db-ciclista;charset=utf8'
             , 'root', '');
+        }
         
-            $query = $db->prepare('SELECT * FROM administradores');
+        function listarUsuarios(){//Voy a tener que modificar aca si modifico la base de datos
+
+            $query = $this->db->prepare('SELECT * FROM administradores');
+
+            function getUsuarios($query){
+        
             $query->execute();
         
             $usuarios = $query->fetchAll(PDO::FETCH_OBJ);
@@ -17,7 +23,7 @@
         
             }
         
-            $usuarios = getUsuarios();
+            $usuarios = getUsuarios($query);
             
             echo '<center>';
             echo '<table>';
@@ -41,21 +47,14 @@
         }
 
         function deleteUsuario($usuarios_id){
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
-        
-            $query = $db->prepare('DELETE FROM administradores WHERE id_admin=?');
+            $query = $this->db->prepare('DELETE FROM administradores WHERE id_admin=?');
             $query->execute(array($usuarios_id));
         
         }
 
         function GetUser($user){
-            $db = new PDO('mysql:host=localhost;'
-                  .'dbname=db-ciclista;charset=utf8'
-                  , 'root', '');
                   
-            $sentencia = $db->prepare("SELECT * FROM administradores WHERE nombre=?");
+            $sentencia = $this->db->prepare("SELECT * FROM administradores WHERE nombre=?");
             $sentencia->execute(array($user));
             return $sentencia->fetch(PDO::FETCH_OBJ);
         }

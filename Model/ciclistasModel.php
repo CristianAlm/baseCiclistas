@@ -2,13 +2,16 @@
 
     class ciclistasModel{
 
+        private $db;
+        public function __construct(){
+            $this->db = new PDO('mysql:host=localhost;'
+            .'dbname=db-ciclista;charset=utf8'
+            , 'root', '');
+        }
+
         function getCiclistaparaeditar($id){
-            $db = new PDO('mysql:host=localhost;'
-              .'dbname=db-ciclista;charset=utf8'
-              , 'root', '');
         
-        
-            $query = $db->prepare('SELECT * FROM corredor WHERE id=' . $id);
+            $query = $this->db->prepare('SELECT * FROM corredor WHERE id=' . $id);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
             if (sizeof($results) > 0)   return $results[0];
@@ -16,12 +19,8 @@
         }
 
         function getCiclista($id){
-            $db = new PDO('mysql:host=localhost;'
-              .'dbname=db-ciclista;charset=utf8'
-              , 'root', '');
         
-        
-            $query = $db->prepare('SELECT * FROM corredor WHERE id=' . $id);
+            $query = $this->db->prepare('SELECT * FROM corredor WHERE id=' . $id);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
             if (sizeof($results) > 0)   return $results[0];
@@ -29,11 +28,8 @@
         }
 
         function getCiclistas(){
-            $db = new PDO('mysql:host=localhost;'
-        .'dbname=db-ciclista;charset=utf8'
-        , 'root', '');
     
-        $query = $db->prepare('SELECT * FROM corredor');
+        $query = $this->db->prepare('SELECT * FROM corredor');
         $query->execute();
     
         $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -43,12 +39,8 @@
         }
         
         function getEquipoparaeditar($id_equipo){//Mirar si tengo que modificar el id y el id del prepare
-            $db = new PDO('mysql:host=localhost;'
-              .'dbname=db-ciclista;charset=utf8'
-              , 'root', '');
         
-        
-            $query = $db->prepare('SELECT * FROM equipo WHERE id_equipo=' . $id_equipo);
+            $query = $this->db->prepare('SELECT * FROM equipo WHERE id_equipo=' . $id_equipo);
             $query->execute();
             $results = $query->fetchAll(PDO::FETCH_OBJ);
             if (sizeof($results) > 0)   return $results[0];
@@ -56,12 +48,11 @@
         }
         
         function listarCiclistas(){//Voy a tener que modificar aca si modifico la base de datos
-            function getCiclistas(){
-                $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
+            
+            $query = $this->db->prepare('SELECT * FROM corredor');
+
+            function getCiclistas($query){
         
-            $query = $db->prepare('SELECT * FROM corredor');
             $query->execute();
         
             $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -70,7 +61,7 @@
         
             }
         
-            $ciclistas = getCiclistas();
+            $ciclistas = getCiclistas($query);
             
             echo '<center>';
             echo '<h3>Lista de ciclistas</h3>';
@@ -107,12 +98,11 @@
         }
 
         function listarCiclistassinAcceso(){//Voy a tener que modificar aca si toco la base de datos
-            function getCiclistas(){
-                $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
+
+            $query = $this->db->prepare('SELECT * FROM corredor');
+
+            function getCiclistas($query){
         
-            $query = $db->prepare('SELECT * FROM corredor');
             $query->execute();
         
             $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -121,7 +111,7 @@
         
             }
         
-            $ciclistas = getCiclistas();
+            $ciclistas = getCiclistas($query);
             
             echo '<center>';
             echo '<h2>Corredores inscriptos</h2>';
@@ -155,12 +145,10 @@
         
         function listarEquipos(){//Voy a tener que modificar aca si toco la base de datos
             
-            function getEquipos(){
-                $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
+            $query = $this->db->prepare('SELECT * FROM equipo');
+
+            function getEquipos($query){
         
-            $query = $db->prepare('SELECT * FROM equipo');
             $query->execute();
         
             $equipos = $query->fetchAll(PDO::FETCH_OBJ);
@@ -169,7 +157,7 @@
         
             }
         
-            $equipos = getEquipos();
+            $equipos = getEquipos($query);
             
             echo '<center>';
             echo '<h3>Lista de equipos</h3>';
@@ -199,13 +187,11 @@
         }
 
         function listarEquipossinAcceso(){//Voy a tener que modificar aca si toco la base de datos
+
+            $query = $this->db->prepare('SELECT * FROM equipo');
             
-            function getEquipos(){
-                $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
+            function getEquipos($query){
         
-            $query = $db->prepare('SELECT * FROM equipo');
             $query->execute();
         
             $equipos = $query->fetchAll(PDO::FETCH_OBJ);
@@ -214,7 +200,7 @@
         
             }
         
-            $equipos = getEquipos();
+            $equipos = getEquipos($query);
             
             echo '<center>';
             echo '<h2>Equipos inscriptos</h2>';
@@ -240,19 +226,13 @@
         }
         
         function insertarCiclista($corredor, $id_equipo,$edad,$especialidad){//Voy a tener que modificar aca si toco la base de datos
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
         
-            $query = $db->prepare('INSERT INTO corredor(corredor, id_equipo, edad, especialidad) VALUES(?,?,?,?)');
+            $query = $this->db->prepare('INSERT INTO corredor(corredor, id_equipo, edad, especialidad) VALUES(?,?,?,?)');
             $query->execute(array($corredor, $id_equipo,$edad,$especialidad));
         }
         function insertarEquipo($id_equipo,$equipo,$division){//Voy a tener que modificar aca si toco la base de datos
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
-        
-            $query = $db->prepare('INSERT INTO equipo(id_equipo, equipo, division) VALUES(?,?,?)');
+            
+            $query = $this->db->prepare('INSERT INTO equipo(id_equipo, equipo, division) VALUES(?,?,?)');
             
             $query->execute(array($id_equipo, $equipo ,$division));
         
@@ -261,22 +241,16 @@
         
         
         function deleteCiclista($ciclistas_id){
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
-        
-            $query = $db->prepare('DELETE FROM corredor WHERE id=?');
+            
+            $query = $this->db->prepare('DELETE FROM corredor WHERE id=?');
             $query->execute(array($ciclistas_id));
         
             //header("Location: ".BASE_URL."home");
         }
 
         function deleteEquipo($equipo_id){
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
         
-            $query = $db->prepare('DELETE FROM equipo WHERE id_equipo=?');
+            $query = $this->db->prepare('DELETE FROM equipo WHERE id_equipo=?');
             $query->execute(array($equipo_id));
         
             //header("Location: ".BASE_URL."home");
@@ -286,14 +260,10 @@
 
             echo " variable id en el model es: " . $id;
             echo " variable newcorredor es: " . $newcorredor;
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
-
             //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
         
-            $query = $db->prepare("UPDATE corredor SET corredor=?, id_equipo=?, edad=?, especialidad=?  WHERE id=?");
+            $query = $this->db->prepare("UPDATE corredor SET corredor=?, id_equipo=?, edad=?, especialidad=?  WHERE id=?");
             $results = $query->execute(array($newcorredor, $newequipo,  $newedad, $newespecialidad, $id));
             //echo "este es el echo: " . $query->rowCount();
             echo " El id despues de esecute es: " .  $id;
@@ -304,14 +274,10 @@
 
             echo " variable id en el model es: " . $id;
             echo " variable newcorredor es: " . $newcorredor;
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
 
             //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-        
-            $query = $db->prepare("UPDATE equipo SET equipo=?, division=? WHERE id_equipo=?");
+            $query = $this->db->prepare("UPDATE equipo SET equipo=?, division=? WHERE id_equipo=?");
             $results = $query->execute(array($newequipo, $newdivision, $id));
             //echo "este es el echo: " . $query->rowCount();
             echo " El id despues de esecute es: " .  $id;
@@ -319,13 +285,11 @@
         }
 
         function muestroCorredores($equipocorredor_id){
-
-            function getCiclistas($equipocorredor_id){
-                $db = new PDO('mysql:host=localhost;'
-                .'dbname=db-ciclista;charset=utf8'
-                , 'root', '');
             
-                $query = $db->prepare('SELECT * FROM `corredor` WHERE id_equipo ='. $equipocorredor_id);
+            $query = $this->db->prepare('SELECT * FROM `corredor` WHERE id_equipo ='. $equipocorredor_id);
+
+            function getCiclistas($query, $equipocorredor_id){
+            
                 $query->execute();
             
                 $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -334,7 +298,7 @@
         
             }
         
-            $ciclistas = getCiclistas($equipocorredor_id);
+            $ciclistas = getCiclistas($query, $equipocorredor_id);
             
             echo '<center>';
             echo '<h3>Lista de ciclistas</h3>';
@@ -365,13 +329,11 @@
     }
 
     function muestroComentarios($comentario_id){
-
-        function getCiclistas($comentario_id){
-            $db = new PDO('mysql:host=localhost;'
-            .'dbname=db-ciclista;charset=utf8'
-            , 'root', '');
         
-            $query = $db->prepare('SELECT * FROM `corredor` WHERE id ='. $comentario_id);
+        $query = $this->db->prepare('SELECT * FROM `corredor` WHERE id ='. $comentario_id);
+
+        function getCiclistas($query, $comentario_id){
+        
             $query->execute();
         
             $ciclistas = $query->fetchAll(PDO::FETCH_OBJ);
@@ -380,7 +342,7 @@
     
         }
     
-        $ciclistas = getCiclistas($comentario_id);
+        $ciclistas = getCiclistas($query, $comentario_id);
         
         echo '<h1>Comentarios del corredor</h1>';
 
@@ -396,7 +358,7 @@
 }
 
         function GetequipoParaSelect(){
-            $sentencia = $db->prepare("SELECT * FROM equipo");
+            $sentencia = $this->db->prepare("SELECT * FROM equipo");
             $sentencia->execute(array());
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }

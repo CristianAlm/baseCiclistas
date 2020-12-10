@@ -31,3 +31,10 @@ if (session_status() != SESSION_ACTIVE) {
 
 <a href="tablaUsuarios">
 <button type="submit" class="btn btn-primary">Ingresar</button>
+
+
+private $db;
+    public function __construct(){
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8','root','');
+    }
+        $query = $this->db->prepare("SELECT producto.*, categoria.nombre as categoria_nombre, categoria.id_categoria as id_categoria FROM producto JOIN categoria ON producto.id_categoria = categoria.id_categoria $criterio");
