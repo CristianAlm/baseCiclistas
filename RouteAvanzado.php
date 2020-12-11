@@ -20,7 +20,7 @@
 
     $r->addRoute("irLogeo", "GET", "loginController", "ShowLogin");
     $r->addRoute("irRegistro", "GET", "loginController", "showRegister");
-    $r->addRoute("Logout", "GET", "loginController", "Logout");
+    //$r->addRoute("Logout", "GET", "loginController", "Logout");
     $r->addRoute("verifyUser", "POST", "loginController", "VerifyUser");
     $r->addRoute("registerUser", "POST", "loginController", "registerUser");
 

@@ -19,12 +19,29 @@ class ciclistasAdminController{
 		$this->viewAdmin = new loginAdminView();
 	}
 
+	private function checkLoggedIn(){
+
+		session_start();
+
+		if(!isset($_SESSION['NOMBRE'])){
+			header('Location: ' . LOGIN);
+			die();
+		}
+
+	}
+
 	function Home(){
+
+		$this->checkLoggedIn();
+
 		$this->view->showHome();
 		$usuarios = $this->model->listarUsuarios();
 	}
 
 	function deleteUsuarios($params = null){
+
+		$this->checkLoggedIn();
+
 		$usuarios_id = $params[':ID'];
 
 		$this->model->deleteUsuario($usuarios_id);
@@ -32,6 +49,9 @@ class ciclistasAdminController{
 	}
 
 	function loginAdmin(){
+
+		$this->checkLoggedIn();
+		
 		$this->viewAdmin->showHome();
 	}
 
